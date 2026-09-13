@@ -1,7 +1,7 @@
 {
   "module": "q3-shadow-dom",
-  "executedAt": "2026-09-13T16:27:36.441Z",
-  "durationMs": 523,
+  "executedAt": "2026-09-13T16:57:29.572Z",
+  "durationMs": 507,
   "overallStatus": "PASSED",
   "totalAssertions": 6,
   "passedAssertions": 6,
@@ -11,68 +11,68 @@
       "description": "Verified custom element uses dynamic regenerating class strings",
       "passed": true,
       "details": {
-        "dynamicClass": "obfuscated_v4_sfi25"
+        "dynamicClass": "obfuscated_v4_4ue9u"
       },
-      "timestamp": "2026-09-13T16:27:35.982Z"
+      "timestamp": "2026-09-13T16:57:29.114Z"
     },
     {
       "description": "Resilient tree walker located target element across nested shadow roots without DOM selectors",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T16:27:35.991Z"
+      "timestamp": "2026-09-13T16:57:29.122Z"
     },
     {
       "description": "Successfully triggered action on pierced target and mutated ledger state",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T16:27:36.059Z"
+      "timestamp": "2026-09-13T16:57:29.191Z"
     },
     {
       "description": "Confirmed browser enforces W3C closed boundary: element.shadowRoot evaluates strictly to null",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T16:27:36.195Z"
+      "timestamp": "2026-09-13T16:57:29.323Z"
     },
     {
       "description": "Located control through computed accessibility tree without DOM IDs or class selectors",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T16:27:36.289Z"
+      "timestamp": "2026-09-13T16:57:29.420Z"
     },
     {
       "description": "Successfully committed financial ledger action via Accessibility Tree locator",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T16:27:36.356Z"
+      "timestamp": "2026-09-13T16:57:29.481Z"
     }
   ],
   "events": [
     {
-      "timestamp": "2026-09-13T16:27:35.959Z",
-      "relativeMs": 41,
+      "timestamp": "2026-09-13T16:57:29.094Z",
+      "relativeMs": 29,
       "category": "TEST_START",
       "message": "Testing open shadow root piercing without static IDs, classes, or text matching",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T16:27:35.982Z",
-      "relativeMs": 64,
+      "timestamp": "2026-09-13T16:57:29.114Z",
+      "relativeMs": 49,
       "category": "OBFUSCATED_CLASS_VERIFIED",
       "message": "Detected regenerating dynamic class string on shadow host",
       "metadata": {
-        "dynamicClass": "obfuscated_v4_sfi25"
+        "dynamicClass": "obfuscated_v4_4ue9u"
       }
     },
     {
-      "timestamp": "2026-09-13T16:27:36.178Z",
-      "relativeMs": 260,
+      "timestamp": "2026-09-13T16:57:29.306Z",
+      "relativeMs": 241,
       "category": "TEST_START",
       "message": "Validating W3C Closed Shadow DOM security boundary and harness solutions",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T16:27:36.195Z",
-      "relativeMs": 277,
+      "timestamp": "2026-09-13T16:57:29.323Z",
+      "relativeMs": 258,
       "category": "CLOSED_BOUNDARY_PROVEN",
       "message": "Standard runtime JS cannot access closed root without test harness or CDP",
       "metadata": {
@@ -81,15 +81,15 @@
       }
     },
     {
-      "timestamp": "2026-09-13T16:27:36.261Z",
-      "relativeMs": 343,
+      "timestamp": "2026-09-13T16:57:29.391Z",
+      "relativeMs": 326,
       "category": "TEST_START",
       "message": "Resolving target control via pure OS Accessibility Tree semantics",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T16:27:36.286Z",
-      "relativeMs": 368,
+      "timestamp": "2026-09-13T16:57:29.417Z",
+      "relativeMs": 352,
       "category": "AX_SNAPSHOT_CAPTURED",
       "message": "Extracted computed OS accessibility tree representation",
       "metadata": {
