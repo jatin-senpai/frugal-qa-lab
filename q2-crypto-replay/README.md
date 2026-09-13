@@ -2,7 +2,7 @@
 
 **Component**: Frugal QA Lab — Q2 Cryptographic Replay Engine  
 **Score Weight**: 4 Points  
-**Technologies**: Node.js Native `crypto`, Express, Playwright, HTTP/1.1 Microsecond Latency
+**Technologies**: Node.js Native `crypto`, Express, Playwright, Sub-Millisecond Event Dispatch
 
 ---
 
@@ -14,7 +14,7 @@ Public mock gateways (like Restful Booker) do not validate cryptographic nonce h
 
 This project implements a localized, stateful Express mock settlement gateway and an automated client framework demonstrating:
 1. Multi-step transaction chaining across dynamic tokens.
-2. Canonicalized HMAC-SHA512 signature computation over raw body, challenge nonces, and microsecond timestamps.
+2. Canonicalized HMAC-SHA512 signature computation over raw body, challenge nonces, and microsecond-resolution timestamps.
 3. Sub-150ms duplicate replay injection.
 4. Deterministic rejection with `HTTP 409 Conflict`.
 5. Automated high-risk data-mutation vulnerability detection.

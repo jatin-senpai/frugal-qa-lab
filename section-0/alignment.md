@@ -17,9 +17,9 @@ Confirmed. I am completely comfortable with this long-term commitment and am sub
 ### 3. Stipend and CTC Details
 **Question:** Have you received the stipend and CTC details? Please confirm by providing the details here.  
 **Response:**  
-Yes, I have received the compensation disclosures from the placement cell:  
-- **Internship Period (Months 1–12):** Stipend as communicated by placement coordinator / offer framework.  
-- **Full-Time Employment CTC (Post-Internship):** CTC structure as outlined in the official BuildNexTech / Frugal Testing placement drive specification.
+Yes, I have received and reviewed the compensation structure for the role:  
+- **Internship Period (Months 1–12):** [CANDIDATE INPUT REQUIRED: e.g., ₹22,000 / month stipend as communicated by placement drive]  
+- **Full-Time Employment CTC (Post-Internship):** [CANDIDATE INPUT REQUIRED: e.g., ₹7 LPA – ₹10 LPA CTC as communicated by placement drive]
 
 ---
 

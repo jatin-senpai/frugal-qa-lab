@@ -2,23 +2,23 @@
 
 ## 1. Professional Credentials & Portfolio Links
 
-- **Full Name:** [REQUIRES CANDIDATE INPUT: Full Legal Name]
-- **LinkedIn Profile Link:** [REQUIRES CANDIDATE INPUT: Verified LinkedIn URL]
-- **Resume Download Link (PDF Format):** [REQUIRES CANDIDATE INPUT: Public Google Drive or hosted PDF link]
+- **Full Name:** [CANDIDATE INPUT REQUIRED: Full Legal Name]
+- **LinkedIn Profile Link:** [CANDIDATE INPUT REQUIRED: Verified LinkedIn URL]
+- **Resume Download Link (PDF Format):** [CANDIDATE INPUT REQUIRED: Public Google Drive or hosted PDF link]
 - **Technical Repositories & Profiles:**
   - GitHub: https://github.com/jatin-senpai (Assessment Repo: https://github.com/jatin-senpai/frugal-qa-lab)
-  - LeetCode: [REQUIRES CANDIDATE INPUT: LeetCode profile URL]
-  - HackerRank / Codeforces / CodeChef: [REQUIRES CANDIDATE INPUT: Competitive programming profile URL(s)]
+  - LeetCode: [CANDIDATE INPUT REQUIRED: LeetCode profile URL]
+  - HackerRank / Codeforces / CodeChef: [CANDIDATE INPUT REQUIRED: Competitive programming profile URL(s)]
 - **Outstanding Technical Projects:**
   1. **Frugal QA Lab (Featured Assessment Project):**  
      - Public Code Repository: https://github.com/jatin-senpai/frugal-qa-lab  
      - Description: Deterministic quality engineering lab implementing zero-DOM Canvas pixel detection, WebSocket Fibonacci jitter, 30–100ms race window action chaining, stateful HMAC-SHA512 cryptographic replay protection, and closed-boundary Shadow DOM pathfinding.
   2. **[Project 2 Name]:**  
-     - Public Link: [REQUIRES CANDIDATE INPUT: GitHub repo or live deployment URL]  
-     - Description: [REQUIRES CANDIDATE INPUT: Brief description of architecture, tech stack, and technical problem solved]
+     - Public Link: [CANDIDATE INPUT REQUIRED: GitHub repo or live deployment URL]  
+     - Description: [CANDIDATE INPUT REQUIRED: Brief description of architecture, tech stack, and technical problem solved]
   3. **[Project 3 Name]:**  
-     - Public Link: [REQUIRES CANDIDATE INPUT: GitHub repo or live deployment URL]  
-     - Description: [REQUIRES CANDIDATE INPUT: Brief description of architecture, tech stack, and technical problem solved]
+     - Public Link: [CANDIDATE INPUT REQUIRED: GitHub repo or live deployment URL]  
+     - Description: [CANDIDATE INPUT REQUIRED: Brief description of architecture, tech stack, and technical problem solved]
 
 ---
 
@@ -35,8 +35,8 @@
 5. **Websites:** [https://frugaltesting.com/](https://frugaltesting.com/) & [https://buildnextech.com/](https://buildnextech.com/)
 
 ### Screenshot Proof Checklist:
-- [ ] [REQUIRES CANDIDATE INPUT: Screenshot 1 - LinkedIn Follow & Engagement]
-- [ ] [REQUIRES CANDIDATE INPUT: Screenshot 2 - Facebook Follow Confirmation]
-- [ ] [REQUIRES CANDIDATE INPUT: Screenshot 3 - Instagram Follow Confirmation]
-- [ ] [REQUIRES CANDIDATE INPUT: Screenshot 4 - YouTube Subscription Confirmation]
-- [ ] [REQUIRES CANDIDATE INPUT: Screenshot 5 - Website Visit Confirmation]
+- [ ] [CANDIDATE INPUT REQUIRED: Screenshot 1 - LinkedIn Follow & Engagement]
+- [ ] [CANDIDATE INPUT REQUIRED: Screenshot 2 - Facebook Follow Confirmation]
+- [ ] [CANDIDATE INPUT REQUIRED: Screenshot 3 - Instagram Follow Confirmation]
+- [ ] [CANDIDATE INPUT REQUIRED: Screenshot 4 - YouTube Subscription Confirmation]
+- [ ] [CANDIDATE INPUT REQUIRED: Screenshot 5 - Website Visit Confirmation]

@@ -13,7 +13,7 @@
 Conventional automated testing frameworks (like Selenium or Cypress) typically rely on standard HTML DOM locators (IDs, class names, XPaths) and assume synchronous or polling-friendly UI updates. In high-performance, security-critical distributed systems, those assumptions break down:
 - **Canvas 2D / WebGL runtimes** do not expose DOM nodes for buttons or visual elements.
 - **WebSocket data streams** experience jitter, latency spikes, and ultra-tight race condition windows ($30\text{--}100\text{ ms}$).
-- **Financial APIs** require microsecond-accurate cryptographic nonces and HMAC signatures to prevent sub-$150\text{ ms}$ packet replay attacks.
+- **Financial APIs** require microsecond-resolution cryptographic nonces and HMAC signatures to prevent sub-$150\text{ ms}$ packet replay attacks.
 - **Web Components** encapsulate DOM subtrees using dynamic class obfuscation and W3C closed Shadow DOM security boundaries.
 
 **Frugal QA Lab** provides real, executable testbeds that recreate these exact scenarios and proves their resilience using deterministic Playwright test suites.
@@ -146,7 +146,7 @@ Q2 implements a stateful financial transaction settlement API running on `http:/
 
 To prevent signature mismatches caused by varying JSON key serialization orders across platforms, the client and server implement deterministic canonicalization:
 1. **`canonicalizeJson(obj)`**: Recursively sorts all object keys in lexicographical (ASCII) order before serialization.
-2. **Microsecond Timestamping (`getMicrosecondTimestamp`)**: Combines `Date.now() * 1000` with sub-millisecond precision from `performance.now() % 1`.
+2. **Microsecond-Resolution Timestamp Generation (`getMicrosecondTimestamp`)**: Generates microsecond-resolution timestamps by combining `Date.now() * 1000` with high-resolution fractional offset from `performance.now() % 1` (providing monotonic high-resolution formatting without claiming physical sub-microsecond hardware clock sync).
 3. **The 5-Tuple String-to-Sign**:
    $$\text{StringToSign} = \text{transactionId} \mid \text{canonicalBody} \mid \text{clientTimestampUs} \mid \text{serverTimestamp} \mid \text{challengeToken}$$
 4. **Signature Generation**: Computes `crypto.createHmac('sha512', secret).update(StringToSign).digest('hex')` and attaches it via the `X-Frugal-Mac` request header.
@@ -157,7 +157,7 @@ To prevent signature mismatches caused by varying JSON key serialization orders 
 To simulate an attacker intercepting and replaying financial packets:
 - `executeReplayAttack()` dispatches an initial valid `PUT /transactions/:id` request.
 - Immediately upon completion, it dispatches an **exact duplicate packet** (identical timestamp, identical challenge token, identical payload, and identical `X-Frugal-Mac`).
-- **Burst Delta**: The duplicate packet is transmitted and received in **0.74ms** (well within the required $<150\text{ms}$ threshold).
+- **Burst Delta**: The duplicate packet is transmitted and received in $< 1\text{ms}$ (measured dynamically between $0.6\text{ms}$ and $1.2\text{ms}$, well within the required $<150\text{ms}$ threshold).
 
 ### 3.4 Replay Defense & HTTP 409 Conflict
 
@@ -394,7 +394,7 @@ frugal-qa-lab/
 │   │   └── app.js                      # Express settlement gateway with sliding-window cache
 │   ├── src/
 │   │   ├── cryptoSigner.js             # Canonical JSON stringifier & HMAC-SHA512 signer
-│   │   ├── microTimer.js               # Microsecond-accurate timestamp provider
+│   │   ├── microTimer.js               # Microsecond-resolution timestamp provider
 │   │   ├── replayClient.js             # Transaction creator and sub-150ms burst dispatcher
 │   │   ├── telemetry.js                # Security audit and vulnerability alert logger
 │   │   └── vulnerabilityAlert.js       # Dedicated security alert formatter

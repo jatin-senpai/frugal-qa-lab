@@ -15,7 +15,7 @@
 Modern web and distributed systems frequently fail in domains where conventional automation tools and basic assertion suites are ineffective:
 1. **Asynchronous UI & Pixel Runtimes**: Pure HTML5 Canvas 2D/WebGL engines that possess zero DOM element nodes, rendering standard CSS/XPath selectors non-functional.
 2. **Dynamic Jitter & Network Chaos**: WebSocket streaming connections subject to non-linear network latency (Fibonacci progression) and micro-burst race conditions ($30\text{--}100\text{ ms}$ action windows).
-3. **Cryptographic Financial Replay**: Stateful distributed APIs that must prevent duplicate transaction replay and tampering across microsecond delivery windows ($<150\text{ ms}$) using dynamic HMAC-SHA512 hash-chaining.
+3. **Cryptographic Financial Replay**: Stateful distributed APIs that must prevent duplicate transaction replay and tampering across high-resolution delivery windows ($<150\text{ ms}$) using microsecond-resolution timestamp generation and dynamic HMAC-SHA512 hash-chaining.
 4. **Sealed DOM Encapsulation**: Deeply nested Web Components with randomized CSS class obfuscation and W3C closed Shadow DOM security boundaries that resist DOM traversal.
 
 Rather than presenting theoretical scripts or simulated logs, **Frugal QA Lab** provides real, executable testbeds, deterministic test runners, and real evidence artifacts.
@@ -151,7 +151,7 @@ frugal-qa-lab/
 │   │   └── app.js                      # Express mock gateway with sliding-window duplicate nonce cache
 │   ├── src/
 │   │   ├── cryptoSigner.js             # Canonical JSON stringifier & HMAC-SHA512 signature generator
-│   │   ├── microTimer.js               # Microsecond-accurate timestamp provider
+│   │   ├── microTimer.js               # Microsecond-resolution timestamp provider
 │   │   ├── replayClient.js             # Dynamic transaction creator, signer, and sub-150ms replay dispatcher
 │   │   └── vulnerabilityAlert.js       # Security alert layer catching unprotected replay endpoints
 │   ├── tests/
@@ -258,7 +258,7 @@ npm run start:q2
 
 ### Verified Behaviors Proven by Q2 Tests:
 1. **Dynamic Sequence Chaining**: Sends `POST /transactions`, extracts dynamic `X-Transaction-Id` from response headers, and captures server timestamp and challenge token from the body.
-2. **Microsecond HMAC-SHA512 Signing**: Constructs canonical String-to-Sign (`id|canonicalBody|clientTimestampUs|serverTimestamp|challengeToken`), computes HMAC-SHA512, and settles via `PUT /transactions/:id`.
+2. **Microsecond-Resolution HMAC-SHA512 Signing**: Constructs canonical String-to-Sign (`id|canonicalBody|clientTimestampUs|serverTimestamp|challengeToken`), computes HMAC-SHA512, and settles via `PUT /transactions/:id`.
 3. **Sub-150ms Replay Attack & HTTP 409 Conflict**: Dispatches an exact duplicate payload (identical timestamp, nonce, and MAC) $<150\text{ ms}$ later. The server sliding-window cache identifies the duplicate MAC and rejects it with `HTTP 409 Conflict`.
 4. **Negative Mutation Security Matrix**: Validates that tampering with the payload body (401), client timestamp (401), or MAC signature (401) results in rejection, and stale timestamps ($>5000\text{ ms}$) return `HTTP 422 Unprocessable Entity`.
 5. **Vulnerability Detection Alert**: Tests an intentionally vulnerable endpoint, traps the replay acceptance, and raises a high-risk security alert (`HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED`).

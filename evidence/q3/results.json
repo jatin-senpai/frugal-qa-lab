@@ -1,7 +1,7 @@
 {
   "module": "q3-shadow-dom",
-  "executedAt": "2026-09-13T17:56:10.904Z",
-  "durationMs": 499,
+  "executedAt": "2026-09-13T19:58:35.512Z",
+  "durationMs": 478,
   "overallStatus": "PASSED",
   "totalAssertions": 7,
   "passedAssertions": 7,
@@ -11,33 +11,33 @@
       "description": "Verified custom element uses dynamic regenerating class strings",
       "passed": true,
       "details": {
-        "dynamicClass": "obfuscated_v4_8me3z"
+        "dynamicClass": "obfuscated_v4_oqkzt"
       },
-      "timestamp": "2026-09-13T17:56:10.455Z"
+      "timestamp": "2026-09-13T19:58:35.084Z"
     },
     {
       "description": "Resilient tree walker located target element across nested shadow roots without DOM selectors",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:56:10.464Z"
+      "timestamp": "2026-09-13T19:58:35.095Z"
     },
     {
       "description": "Successfully triggered action on pierced target and mutated ledger state",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:56:10.530Z"
+      "timestamp": "2026-09-13T19:58:35.158Z"
     },
     {
       "description": "Confirmed browser enforces W3C closed boundary: element.shadowRoot evaluates strictly to null",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:56:10.670Z"
+      "timestamp": "2026-09-13T19:58:35.287Z"
     },
     {
       "description": "Verified platform limitation: Standard in-page DOM getByRole cannot penetrate closed shadow roots",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:56:10.767Z"
+      "timestamp": "2026-09-13T19:58:35.379Z"
     },
     {
       "description": "Blink Accessibility Engine successfully extracted button node across closed shadow root",
@@ -47,42 +47,42 @@
         "name": "Authorize Ledger Funds",
         "backendDOMNodeId": 23
       },
-      "timestamp": "2026-09-13T17:56:10.770Z"
+      "timestamp": "2026-09-13T19:58:35.382Z"
     },
     {
       "description": "Successfully committed financial ledger action via native browser Accessibility Tree coordinates without DOM piercing",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:56:10.807Z"
+      "timestamp": "2026-09-13T19:58:35.421Z"
     }
   ],
   "events": [
     {
-      "timestamp": "2026-09-13T17:56:10.436Z",
+      "timestamp": "2026-09-13T19:58:35.065Z",
       "relativeMs": 31,
       "category": "TEST_START",
       "message": "Testing open shadow root piercing without static IDs, classes, or text matching",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:56:10.455Z",
+      "timestamp": "2026-09-13T19:58:35.084Z",
       "relativeMs": 50,
       "category": "OBFUSCATED_CLASS_VERIFIED",
       "message": "Detected regenerating dynamic class string on shadow host",
       "metadata": {
-        "dynamicClass": "obfuscated_v4_8me3z"
+        "dynamicClass": "obfuscated_v4_oqkzt"
       }
     },
     {
-      "timestamp": "2026-09-13T17:56:10.651Z",
-      "relativeMs": 246,
+      "timestamp": "2026-09-13T19:58:35.270Z",
+      "relativeMs": 236,
       "category": "TEST_START",
       "message": "Validating W3C Closed Shadow DOM security boundary and harness solutions",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:56:10.670Z",
-      "relativeMs": 265,
+      "timestamp": "2026-09-13T19:58:35.287Z",
+      "relativeMs": 253,
       "category": "CLOSED_BOUNDARY_PROVEN",
       "message": "Standard runtime JS cannot access closed root without test harness or CDP",
       "metadata": {
@@ -91,8 +91,8 @@
       }
     },
     {
-      "timestamp": "2026-09-13T17:56:10.740Z",
-      "relativeMs": 335,
+      "timestamp": "2026-09-13T19:58:35.354Z",
+      "relativeMs": 320,
       "category": "TEST_START",
       "message": "Resolving target control via pure OS Accessibility Tree semantics",
       "metadata": {}

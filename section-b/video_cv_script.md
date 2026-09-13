@@ -18,11 +18,11 @@
 ### [00:40 – 01:25] Part 2: Complex Technical Challenge & Undocumented Behaviors
 *(Natural, confident transition into concrete systems experience)*
 
-> "Recently, when architecting the **Frugal QA Lab** quality testbed, I encountered a classic asynchronous race failure. In the Canvas automation suite, incoming WebSocket orderbook ticks were subjected to a scaling Fibonacci delay model. 
+> "Recently, when architecting the **Frugal QA Lab** quality testbed, I encountered a difficult asynchronous race condition and a genuine debugging failure. In the Canvas automation suite, incoming WebSocket orderbook ticks were subjected to a scaling Fibonacci delay model.
 >
-> Naive DOM testing was impossible because the application rendered directly to raw HTML5 Canvas pixels. Standard pixel scanning initially triggered false positives by picking up adjacent candlestick chart lines rather than the target button. 
+> Naive DOM testing was impossible because the application renders directly to raw HTML5 Canvas pixels. During early test runs, my automation failed repeatedly: the pixel scanner triggered false-positive detections on green candlestick chart lines in the upper canvas, firing clicks into empty space and dropping the trade.
 >
-> Rather than relying on fragile arbitrary sleeps, I engineered an embedded `requestAnimationFrame` contour-detection engine. It polls the canvas context directly, verifies the initial gray loading threshold, and detects the active color transition. I then wrapped the subsequent chained mouse action—hover, drag 15 pixels, and click—inside a dynamic coordinate circuit-breaker that re-samples coordinates to prevent blind clicks during layout shifts, executing strictly within the 30-to-100 millisecond race window."
+> To solve this failure without resorting to flaky static sleeps, I went back to first principles. I inspected the raw frame buffer geometry, introduced regional Y-coordinate filtering ($y \ge 180$) and contour-width constraints ($>60\text{px}$) within a `requestAnimationFrame`-driven pixel observation engine. I then wrapped the chained mouse action—hover, drag 15 pixels, and click—inside a coordinate circuit-breaker that re-validates pixel state before firing, executing deterministically within the strict 30-to-100 millisecond race window."
 
 ---
 

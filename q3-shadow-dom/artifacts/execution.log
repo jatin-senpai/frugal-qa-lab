@@ -1,5 +1,5 @@
-[2026-09-13T17:56:10.436Z] [TEST_START              ] Testing open shadow root piercing without static IDs, classes, or text matching {}
-[2026-09-13T17:56:10.455Z] [OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {"dynamicClass":"obfuscated_v4_8me3z"}
-[2026-09-13T17:56:10.651Z] [TEST_START              ] Validating W3C Closed Shadow DOM security boundary and harness solutions {}
-[2026-09-13T17:56:10.670Z] [CLOSED_BOUNDARY_PROVEN  ] Standard runtime JS cannot access closed root without test harness or CDP {"spec":"W3C DOM Level 4 & Shadow DOM v1 Specification","boundary":"Element.attachShadow({ mode: \"closed\" }) forces element.shadowRoot to strictly evaluate to null outside the constructor closure. Browser C++ DOM bindings (V8/Blink, WebKit) enforce encapsulation so no standard webpage runtime JavaScript can pierce a closed root."}
-[2026-09-13T17:56:10.740Z] [TEST_START              ] Resolving target control via pure OS Accessibility Tree semantics {}
+[2026-09-13T19:58:35.065Z] [TEST_START              ] Testing open shadow root piercing without static IDs, classes, or text matching {}
+[2026-09-13T19:58:35.084Z] [OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {"dynamicClass":"obfuscated_v4_oqkzt"}
+[2026-09-13T19:58:35.270Z] [TEST_START              ] Validating W3C Closed Shadow DOM security boundary and harness solutions {}
+[2026-09-13T19:58:35.287Z] [CLOSED_BOUNDARY_PROVEN  ] Standard runtime JS cannot access closed root without test harness or CDP {"spec":"W3C DOM Level 4 & Shadow DOM v1 Specification","boundary":"Element.attachShadow({ mode: \"closed\" }) forces element.shadowRoot to strictly evaluate to null outside the constructor closure. Browser C++ DOM bindings (V8/Blink, WebKit) enforce encapsulation so no standard webpage runtime JavaScript can pierce a closed root."}
+[2026-09-13T19:58:35.354Z] [TEST_START              ] Resolving target control via pure OS Accessibility Tree semantics {}
