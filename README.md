@@ -20,6 +20,8 @@ Modern web and distributed systems frequently fail in domains where conventional
 
 Rather than presenting theoretical scripts or simulated logs, **Frugal QA Lab** provides real, executable testbeds, deterministic test runners, and real evidence artifacts.
 
+> 📖 **Deep Dive**: For an exhaustive, component-by-component architectural guide explaining how every algorithm, testbed, and security mechanism operates under the hood, see [**`HOW_IT_WORKS.md`**](./HOW_IT_WORKS.md).
+
 ---
 
 ## 2. Assessment Mapping
