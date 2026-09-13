@@ -48,7 +48,7 @@ flowchart TD
         Q3_Obf["Dynamic Class Obfuscator\n(Regenerates .obfuscated_v4_* on every load)"]
         Q3_Walker["Resilient Open Shadow Root Piercer\n(Recursive Tree Traversal)"]
         Q3_Proof["W3C Closed Boundary Proof\n(element.shadowRoot === null in runtime JS)"]
-        Q3_AX["OS Accessibility Tree Pathfinding\n(Decoupled page.getByRole Semantic Locator)"]
+        Q3_AX["OS Accessibility Tree Pathfinding\n(Blink CDP Accessibility Engine & Layout Click)"]
     end
 
     TC1 -->|CDP & Mouse Macros| Q1_Canvas
@@ -249,24 +249,24 @@ Contains formally articulated answers to all mandatory disclosure prompts:
 - Question 6: Defensible professional justification for prioritizing this opportunity.
 
 ### 5.2 17 Analytical Engineering Scenarios (`section-b/answers.md`)
-Questions Q4 through Q20 address real-world systems, performance, security, and quality engineering scenarios directly from the assessment specification. Each answer is structured under an internal 6-point reasoning model (`Failure Mechanism`, `Root Cause`, `Why Naive Testing Misses It`, `Deterministic Solution`, `Telemetry/Assertion/Control`, `Trade-off`) and strictly bounded to **$\le 150$ words each**:
-- **Q4 (Architectural Critique: Cascading Drift in Multi-Agent Pipelines)**: Circular feedback loops between Code Generator and Auto-Fixer creating false certainty via dependency mirroring; resolved by independent test oracle verification and generation cycle circuit-breakers.
-- **Q5 (Log Analysis: GC Leaks & Microtask Loop Starvation)**: Event loop starvation from microtask queue overload coupled with socket buffer saturation causing heap Out-Of-Memory crashes; resolved by stream backpressure and queue length limits.
-- **Q6 (AI Code Safety Review & Multi-Tenant Query Injection)**: Raw string interpolation (Python f-strings) in multi-tenant SQL queries allowing tenant isolation bypass; resolved by parameterized queries and a Few-Shot defensive prompt.
-- **Q7 (Flaky Tests & Clock-Drift in Ephemeral Cloud Workers)**: Unstable 15-second `setTimeout` and local timestamp comparisons failing under cloud hypervisor CPU throttling; resolved by event-driven polling and server-anchored monotonic clocks.
-- **Q8 (Systems Concurrency & Connection Pool Starvation)**: HikariCP connection pool exhaustion under 200 concurrent runners; diagnostic methodology isolating slow database row locks vs connection leaks via JVM thread dumps and pool MBeans.
-- **Q9 (Operational Ambiguity: Headless CSS Layout Tree Collapses)**: Headless Chromium passing DOM element presence while CSS-in-JS layout crashes render a blank screen; resolved by visual regression snapshots and `getComputedStyle` dimension assertions.
-- **Q10 (Next-Gen Agentic Loops: Multi-Branch Cascading Loops)**: Autonomous engineering agent generating 85 conflicting hotfix branches; resolved by ephemeral sandboxed write privileges, branch creation quotas, and mandatory human sign-off gates.
-- **Q11 (AST-Driven Test Selection & Dependency Mapping)**: Optimizing 150 daily PR runs by parsing diffs into ASTs (tree-sitter/Babel), traversing dependency call graphs, and running only affected test subsets.
-- **Q12 (Self-Healing Testing: Graph Structural Neighbor Analysis)**: Fuzzy DOM locator healing mistakenly clicking destructive `#purge-all-data` when `#confirm-balance-wipe` is absent; resolved by hierarchical graph-distance bounding and semantic action classification.
-- **Q13 (MCP Sandboxing: Zero-Trust Schema Configurations)**: Restricting an over-privileged MCP terminal tool to a typed JSON schema with directory path regexes, line count bounds, and direct binary execution (`execFile`).
-- **Q14 (Systems Scalability: Asynchronous Log Ingestion Topographies)**: Handling 35,000 verbose failure bundles in 30s during global branch mergers via Kafka distributed buffers, decoupled Celery worker pools, and MinIO object storage.
-- **Q15 (Distributed Tracing & Ledger Cascade Failures)**: OpenTelemetry span analysis identifying the root-cause database lock timeout on `LedgerDB` updating `user_accounts id=92` cascading to Payment Gateway 500 errors.
-- **Q16 (Cognitive Prompt Critiques: Halting Context Contraction)**: Overcoming conversational context window degradation in iterative regex prompting by structuring a single-turn, Few-Shot system prompt.
-- **Q17 (Quality Engineering Blueprint: Critical Healthcare Telemetry)**: Test tier allocation (Unit 30%, AppSec 25%, API Contract 20%, Load 15%, Visual 10%) with automated synthetic PHI masking for continuous wearable ingestion.
-- **Q18 (OpenAPI Boundary Exploitation & Semantic Attack Topographies)**: Autonomous security fuzzing targeting boundaries (`0.00`, `50000.01`, `1e+7`), regex bypasses, and recursive JSON payload nesting depth $>5$.
+Questions Q4 through Q20 address real-world systems, performance, security, and quality engineering scenarios directly extracted from the authoritative assessment PDF. Each answer is structured under an internal 6-point reasoning model (`Failure Mechanism`, `Root Cause`, `Why Naive Testing Misses It`, `Deterministic Solution`, `Telemetry/Assertion/Control`, `Trade-off`) and strictly bounded to **$\le 150$ words each**:
+- **Q4 (Architectural Critique: The Cascading Drift in Multi-Agent Synthesis Pipelines)**: Circular feedback loops between Code Generator and Auto-Fixer creating false certainty via dependency mirroring; resolved by independent test oracle verification and generation cycle circuit-breakers.
+- **Q5 (Log File Analysis: Garbage Collection Leaks & Microtask Loop Starvation)**: Event loop starvation from microtask queue overload coupled with socket buffer saturation causing heap Out-Of-Memory crashes; resolved by stream backpressure and queue length limits.
+- **Q6 (AI Code Safety Review & Prompt Engineering Mitigation)**: Raw string interpolation (Python f-strings) in multi-tenant SQL queries allowing tenant isolation bypass; resolved by parameterized queries and a Few-Shot defensive prompt.
+- **Q7 (Flaky Test Code Review & Clock-Drift Desynchronization in Ephemeral Workers)**: Unstable 15-second `setTimeout` and local timestamp comparisons failing under cloud hypervisor CPU throttling; resolved by event-driven polling and server-anchored monotonic clocks.
+- **Q8 (Systems Concurrency & Connection Pool Leak Mechanics under Distributed Strain)**: HikariCP connection pool exhaustion under 200 concurrent runners; diagnostic methodology isolating slow database row locks vs connection leaks via JVM thread dumps and pool MBeans.
+- **Q9 (Operational Ambiguity: Headless CSS Layout Tree Thread Collapses)**: Headless Chromium passing DOM element presence while CSS-in-JS layout crashes render a blank screen; resolved by visual regression snapshots and `getComputedStyle` dimension assertions.
+- **Q10 (Next-Generation Agentic Loops: Autonomous Multi-Branch Cascading Loops)**: Autonomous engineering agent generating 85 conflicting hotfix branches; resolved by ephemeral sandboxed write privileges, branch creation quotas, and mandatory human sign-off gates.
+- **Q11 (AST-Driven Test Selection Frameworks & Contextual Path Dependency Mapping)**: Optimizing 150 daily PR runs by parsing diffs into ASTs (tree-sitter/Babel), traversing dependency call graphs, and running only affected test subsets.
+- **Q12 (Self-Healing Testing Engines: Graph-Based Structural Neighbor Analysis)**: Fuzzy DOM locator healing mistakenly clicking destructive `#purge-all-data` when `#confirm-balance-wipe` is absent; resolved by hierarchical graph-distance bounding and semantic action classification.
+- **Q13 (Model Context Protocol (MCP) Sandboxing: Zero-Trust Schema Configurations)**: Restricting an over-privileged MCP terminal tool to a typed JSON schema with directory path regexes, line count bounds, and direct binary execution (`execFile`).
+- **Q14 (Systems Scalability: Asynchronous Log Ingestion Topographies for Enterprise Triage)**: Handling 35,000 verbose failure bundles in 30s during global branch mergers via Kafka distributed buffers, decoupled Celery worker pools, and MinIO object storage.
+- **Q15 (Distributed Tracing & Cascade Failures across Distributed Ledgers)**: OpenTelemetry span analysis identifying the root-cause database lock timeout on `LedgerDB` updating `user_accounts id=92` cascading to Payment Gateway 500 errors.
+- **Q16 (Cognitive Prompt Critiques: Halting the Context Contraction in Refinement Cycles)**: Overcoming conversational context window degradation in iterative regex prompting by structuring a single-turn, Few-Shot system prompt.
+- **Q17 (Quality Engineering Blueprint: Critical Infrastructure Data Flow Distortions)**: Test tier allocation (Unit 30%, AppSec 25%, API Contract 20%, Load 15%, Visual 10%) with automated synthetic PHI masking for continuous wearable ingestion.
+- **Q18 (OpenAPI Specification Boundary Exploitation & Semantic Attack Topographies)**: Autonomous security fuzzing targeting boundaries (`0.00`, `50000.01`, `1e+7`), regex bypasses, and recursive JSON payload nesting depth $>5$.
 - **Q19 (Automated Quality Release Sign-Off Gates)**: Architecture for an automated Go/No-Go release gate integrating statement/branch coverage, flaky test thresholds, Trivy container CVEs, and Jira blockers with automated canary rollbacks.
-- **Q20 (Closed-Loop Observability: Production-Driven Stress Testing)**: Correlating production OpenTelemetry spans and APM traffic spikes to automatically synthesize realistic staging load profiles and dynamically scale KEDA stress runners.
+- **Q20 (Closed-Loop Observability: Adaptive Production-Driven Stress Testing)**: Correlating production OpenTelemetry spans and APM traffic spikes to automatically synthesize realistic staging load profiles and dynamically scale KEDA stress runners.
 
 ### 5.3 Behavioral Alignment Decisions (Situations A–D)
 - **Situation A (Undocumented Legacy Crash)**: **Choice ii** (Defensive error handling wrapper with telemetry; avoids risky pre-release structural rewrite).
@@ -309,7 +309,7 @@ npx playwright install chromium
 ```bash
 npm test
 ```
-*Expected Output*: `11 passed (12.9s)` with exit code 0.
+*Expected Output*: `11 passed (12.6s)` with exit code 0.
 
 #### Run Q1 (Canvas Chaos & Race Interceptions)
 ```bash
@@ -433,3 +433,38 @@ frugal-qa-lab/
     ├── q2/                             # Results.json, execution.log, and replay rejection traces
     └── q3/                             # Results.json, execution.log, and accessibility snapshots
 ```
+
+---
+
+## 8. Source-of-Truth Compliance & Verification Summary
+
+The table below presents the strict source-of-truth audit against the Frugal Testing / BuildNexTech assessment specification (`AI-Native Software Engineer Intern.pdf`):
+
+| Assessment Question / Requirement | Authoritative PDF Specification | Implementation & Verification File | Status |
+| :--- | :--- | :--- | :---: |
+| **Section 0 (p. 4)** | Pre-Evaluation Disclosures: Bond (36 mo), CTC/stipend, Hyderabad relocation, firm choice | `section-0/alignment.md` | **PASS** |
+| **Section A: Q1.1 (p. 5)** | Local Canvas Testbed & WebSocket Stream: Live orderbook via standard `ws://` | `q1-canvas-chaos/server/app.js`<br>`q1-canvas-chaos/app/app.js` | **PASS** |
+| **Section A: Q1.1 (p. 5)** | Fibonacci Jitter Progression: Delay model $1000\text{ms} \times \text{Fib}(n)$ capped at $8000\text{ms}$ | `q1-canvas-chaos/src/networkJitter.js` | **PASS** |
+| **Section A: Q1.2 (p. 5)** | Zero-DOM Pixel Detector: `requestAnimationFrame`-driven pixel-state observation (gray $\to$ green) | `q1-canvas-chaos/src/pixelDetector.js` | **PASS** |
+| **Section A: Q1.3 (p. 5)** | Race Injection Trap: Chained action (`Hover` $\to$ `Drag 15px X` $\to$ `Click`) within 30–100ms | `q1-canvas-chaos/src/actionChainer.js` | **PASS** |
+| **Section A: Q1.3 (p. 5)** | Coordinate Drift Resilience: Circuit-breaker macro handling repaint delays and drift | `q1-canvas-chaos/src/circuitBreaker.js` | **PASS** |
+| **Section A: Q1.4 (p. 5)** | Server Boundary Mismatch: Mathematical corruption (`balance: '1e+7'`) halts client rendering | `q1-canvas-chaos/app/app.js` | **PASS** |
+| **Section A: Q2.1 (p. 6)** | Dynamic Sequence Chaining: `POST /transactions` issuing transaction ID wrapper in header | `q2-crypto-replay/server/app.js`<br>`q2-crypto-replay/src/replayClient.js` | **PASS** |
+| **Section A: Q2.2 (p. 6)** | Cryptographic Nonce Injection: `PUT /transactions/:id` with dynamic `X-Frugal-Mac` (HMAC-SHA512) | `q2-crypto-replay/src/cryptoSigner.js`<br>`q2-crypto-replay/server/app.js` | **PASS** |
+| **Section A: Q2.3 (p. 6)** | Exact Replay Attack: Resend identical payload with identical timestamp & MAC within $<150\text{ms}$ | `q2-crypto-replay/src/replayClient.js` | **PASS** |
+| **Section A: Q2.4 (p. 6)** | Replay Assertion & Rejection: Server drops and rejects duplicate replay with `HTTP 409 Conflict` | `q2-crypto-replay/server/app.js` | **PASS** |
+| **Section A: Q2.4 (p. 6)** | Negative Security Mutation Suite: Tampered body, tampered timestamp, corrupted MAC, stale timestamp | `q2-crypto-replay/tests/crypto-replay.spec.js` | **PASS** |
+| **Section A: Q2.4 (p. 6)** | High-Risk Vulnerability Alert: Framework throws critical alert if replay is accepted on unprotected route | `q2-crypto-replay/src/telemetry.js` | **PASS** |
+| **Section A: Q3.1 (p. 7)** | Obfuscated Shadow DOM Traversal: Recursive JS walker traversing open roots with regenerating classes | `q3-shadow-dom/src/resilientWalker.js`<br>`q3-shadow-dom/app/components.js` | **PASS** |
+| **Section A: Q3.2 (p. 7)** | Closed Shadow Root Boundary: Programmatic proof that `element.shadowRoot === null` in runtime JS | `q3-shadow-dom/src/closedBoundaryProof.js` | **PASS** |
+| **Section A: Q3.3 (p. 7)** | Accessibility Tree Pathfinding: Locating control via semantic accessibility tree without DOM selectors | `q3-shadow-dom/tests/shadow-dom.spec.js` | **PASS** |
+| **Section A: Q3.4 (p. 7)** | Accessibility System Prompt Artifact: Structured prompt instructing agent via OS Accessibility Tree | `q3-shadow-dom/src/systemPromptCoT.md` | **PASS** |
+| **Section B: Q4–Q20 (p. 8–16)** | 17 Analytical Engineering Scenarios: Systems, OOM, AST diffing, HikariCP, MCP, Tracing, HIPAA, OpenAPI | `section-b/answers.md` | **PASS** |
+| **Section B: Situations A–D (p. 16–17)** | Behavioral Alignment Profiles: 4 scenarios evaluated against professional engineering judgment | `section-b/answers.md` | **PASS** |
+| **Section B: Q21 (p. 17)** | Technical Article: Topic B (Securing AI Workspace: Restrictive MCP Sandboxes, 1,390 words) | `section-b/article.md` | **PASS** |
+| **Section B: Q22 (p. 17–18)** | Profile & Technical Portfolio Compilation: Verified credentials, repositories, social engagement | `section-b/portfolio.md` | **NEEDS CANDIDATE VERIFICATION** |
+| **Section B: Q23 (p. 18)** | Video Evaluation Presentation (Video CV): 2–3 minute presentation script addressing 4 core prompts | `section-b/video_cv_script.md` | **NEEDS CANDIDATE VERIFICATION** |
+| **Formatting & Video (p. 3–4)** | 3 Mandatory Video Checkpoints (Output Window, Source Code, GenAI Prompt History) for Q1, Q2, Q3 | Module READMEs (`q1/`, `q2/`, `q3/`) | **NEEDS CANDIDATE VERIFICATION** |
+
+For the complete requirement-by-requirement audit matrix with granular verification evidence, refer to [`FINAL_REQUIREMENTS_MATRIX.md`](./FINAL_REQUIREMENTS_MATRIX.md).
+
