@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frugal QA Lab — Nested Shadow DOM & Accessibility Gateway</title>
+  <style>
+    body {
+      background: #0b0f19;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .hud {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .hud h1 {
+      font-size: 16px;
+      font-family: ui-monospace, monospace;
+      color: #38bdf8;
+      letter-spacing: 1px;
+    }
+    #audit-status {
+      margin-top: 8px;
+      font-size: 13px;
+      font-family: ui-monospace, monospace;
+      color: #94a3b8;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .status-pending { background: #334155; color: #94a3b8; }
+    .status-authorized { background: #065f46; color: #34d399; }
+  </style>
+  <script src="components.js"></script>
+</head>
+<body>
+  <div class="hud">
+    <h1>FRUGAL QA LAB // SHADOW BOUNDARY GATEWAY</h1>
+    <div id="audit-status">
+      Ledger Authorization Status: <span id="auth-badge" class="status-badge status-pending">UNAUTHORIZED</span>
+    </div>
+  </div>
+
+  <!-- Multi-Level Nested Shadow Root Boundary specified in Page 7 -->
+  <enterprise-portal id="root-gateway"></enterprise-portal>
+
+  <script>
+    // Event listener for ledger authorization event
+    window.addEventListener('frugal:ledger-authorized', (e) => {
+      const badge = document.getElementById('auth-badge');
+      badge.textContent = 'AUTHORIZED (TOKEN CONSUMED)';
+      badge.className = 'status-badge status-authorized';
+      window.__LEDGER_AUTHORIZED = true;
+      window.__LEDGER_PAYLOAD = e.detail;
+      console.log('[Audit] Ledger funds authorization committed:', e.detail);
+    });
+  </script>
+</body>
+</html>

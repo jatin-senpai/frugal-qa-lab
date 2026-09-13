@@ -4,7 +4,7 @@
       "/Users/yashshviyadav/.nvm/versions/node/v24.11.0/bin/node",
       "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/node_modules/.bin/playwright",
       "test",
-      "q2-crypto-replay/tests/crypto-replay.spec.js"
+      "q3-shadow-dom/tests/shadow-dom.spec.js"
     ],
     "configFile": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/playwright.config.js",
     "rootDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab",
@@ -66,20 +66,20 @@
   },
   "suites": [
     {
-      "title": "q2-crypto-replay/tests/crypto-replay.spec.js",
-      "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+      "title": "q3-shadow-dom/tests/shadow-dom.spec.js",
+      "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Q2: Cryptographic Replay Testing, Stateful Nonces & Hash-Chain API Chaining",
-          "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-          "line": 15,
+          "title": "Q3: Sealed Closed-Boundary Shadow DOM Pathfinding & Accessibility Tree Refactoring",
+          "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "Core Spec 1 & 2: Dynamic Sequence Chaining & Cryptographic Nonce Injection",
+              "title": "Core Spec 1: Resilient Open Shadow DOM Traversal across Obfuscated Regenerating Classes",
               "ok": true,
               "tags": [],
               "tests": [
@@ -94,45 +94,56 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 26,
+                      "duration": 214,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "[Test Setup] Q2 Cryptographic Mock Server active on http://localhost:3002\n"
+                          "text": "[Test Setup] Q3 Host Server active on http://localhost:3003\n"
                         },
                         {
-                          "text": "[TEST_START] Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification \n"
+                          "text": "[TEST_START] Testing open shadow root piercing without static IDs, classes, or text matching \n"
                         },
                         {
-                          "text": "[TRANSACTION_CREATED] Received transaction wrapper from server {\"status\":201,\"headerTxnId\":\"txn_733ffdd8a8bfbff0151eb5d0\",\"headerChallenge\":\"ch_20dcc153f1328911e0b2543e43685036\"}\n"
+                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_hhtie\"}\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Extracted valid transaction ID from X-Transaction-Id response header\n"
+                          "text": "[ASSERTION:PASS] Verified custom element uses dynamic regenerating class strings\n"
                         },
                         {
-                          "text": "[PUT_DISPATCHED] Dispatched signed PUT update request {\"status\":200,\"elapsedMs\":4.140832999999986,\"sentMac\":\"b5d83ebdf453a9dbf9eb798616f234cf742ef8f78725013a1118f256c8231794f9404753cbacdbd006f5a7f30a6d197bc94fcc6bcd930b8bcf1426e53550cf51\"}\n"
+                          "text": "[ASSERTION:PASS] Resilient tree walker located target element across nested shadow roots without DOM selectors\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Server verified dynamic HMAC-SHA512 header and settled transaction\n"
+                          "text": "[ASSERTION:PASS] Successfully triggered action on pierced target and mutated ledger state\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T16:20:07.308Z",
+                      "startTime": "2026-09-13T16:21:59.300Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-8a514-scated-Regenerating-Classes-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-8a514-scated-Regenerating-Classes-chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "1b909e28f501beb796bc-2609b3af263158440f09",
-              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 42,
+              "id": "414d4760a35ae39039c0-7816fb918f45fb33dd54",
+              "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
+              "line": 39,
               "column": 3
             },
             {
-              "title": "Core Spec 3 & 4: Exact Replay Attack Vector (<150ms) & Replay Assertion (HTTP 409 Conflict)",
+              "title": "Core Spec 2: Verification of Closed Shadow DOM Boundary & Testability Solutions",
               "ok": true,
               "tags": [],
               "tests": [
@@ -147,42 +158,47 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3,
+                      "duration": 86,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "[TEST_START] Executing immediate Replay Attack within <150ms of PUT completion \n"
+                          "text": "[TEST_START] Validating W3C Closed Shadow DOM security boundary and harness solutions \n"
                         },
                         {
-                          "text": "[REPLAY_ATTACK_EXECUTED] Dispatched initial request followed by immediate duplicate payload {\"initialStatus\":200,\"replayStatus\":409,\"burstDeltaMs\":0.8423329999999964,\"completedWithin150Ms\":true,\"replayedSignature\":\"e83c60f76bbe2987ff1d3ad045959a06138f6f735530b66d07ee87eea15a8cf6260664cd1e21d5c1c727fb634c05b3bec9e665a6767ceebbe2c0affdae97ba4e\"}\n"
+                          "text": "[ASSERTION:PASS] Confirmed browser enforces W3C closed boundary: element.shadowRoot evaluates strictly to null\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Initial financial transaction settled successfully\n"
-                        },
-                        {
-                          "text": "[ASSERTION:PASS] Duplicate replay packet dispatched within 150ms window\n"
-                        },
-                        {
-                          "text": "[ASSERTION:PASS] Backend correctly dropped and rejected replay attempt with HTTP 409 Conflict\n"
+                          "text": "[CLOSED_BOUNDARY_PROVEN] Standard runtime JS cannot access closed root without test harness or CDP {\"spec\":\"W3C DOM Level 4 & Shadow DOM v1 Specification\",\"boundary\":\"Element.attachShadow({ mode: \\\"closed\\\" }) forces element.shadowRoot to strictly evaluate to null outside the constructor closure. Browser C++ DOM bindings (V8/Blink, WebKit) enforce encapsulation so no standard webpage runtime JavaScript can pierce a closed root.\"}\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T16:20:07.351Z",
+                      "startTime": "2026-09-13T16:21:59.590Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-85fdc-ndary-Testability-Solutions-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-85fdc-ndary-Testability-Solutions-chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "1b909e28f501beb796bc-cc2dfb435b878fcd587c",
-              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 88,
+              "id": "414d4760a35ae39039c0-93789507b01a1f590a6c",
+              "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
+              "line": 77,
               "column": 3
             },
             {
-              "title": "Negative Security Matrix: Tampered Payloads, Corrupted MAC, and Stale Timestamps",
+              "title": "Core Spec 3: OS Accessibility Tree Pathfinding (Decoupled from DOM encapsulation)",
               "ok": true,
               "tags": [],
               "tests": [
@@ -197,92 +213,49 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4,
+                      "duration": 194,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "[TEST_START] Validating negative cryptographic mutation attack vectors \n"
+                          "text": "[TEST_START] Resolving target control via pure OS Accessibility Tree semantics \n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Backend rejected tampered payload body with HTTP 401 Unauthorized\n"
+                          "text": "[AX_SNAPSHOT_CAPTURED] Extracted computed OS accessibility tree representation {\"ariaTreeSnippet\":\"- heading \\\"FRUGAL QA LAB // SHADOW BOUNDARY GATEWAY\\\" [level=1]\\n- text: \\\"Ledger Authorization Status: UNAUTHORIZED ENTERPRISE GATEWAY HOST // ROOT LAYE\"}\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Backend rejected tampered timestamp with HTTP 401 Unauthorized\n"
+                          "text": "[ASSERTION:PASS] Located control through computed accessibility tree without DOM IDs or class selectors\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Backend rejected corrupted MAC string with HTTP 401 Unauthorized\n"
+                          "text": "[ASSERTION:PASS] Successfully committed financial ledger action via Accessibility Tree locator\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Backend rejected stale timestamp with HTTP 422 Unprocessable Entity\n"
+                          "text": "[Test Teardown] Q3 Server stopped.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T16:20:07.359Z",
+                      "startTime": "2026-09-13T16:21:59.680Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-42378-led-from-DOM-encapsulation--chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-42378-led-from-DOM-encapsulation--chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "1b909e28f501beb796bc-796f3a34c34d7eca86df",
-              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 133,
-              "column": 3
-            },
-            {
-              "title": "Vulnerability Alert Layer: Framework Throws High-Risk Data-Mutation Alert on Unprotected Endpoint",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[TEST_START] Testing Vulnerability Detection Engine against simulated unprotected replay endpoint \n"
-                        },
-                        {
-                          "text": "[VULNERABLE_TEST_EXECUTED] Targeted vulnerable route to test security assertion handler {\"initialStatus\":200,\"replayStatus\":200}\n"
-                        },
-                        {
-                          "text": "[ASSERTION:PASS] Framework successfully trapped and alerted on high-risk replay vulnerability\n"
-                        },
-                        {
-                          "text": "[Test Teardown] Q2 Server stopped.\n"
-                        }
-                      ],
-                      "stderr": [
-                        {
-                          "text": "\n🚨 [HIGH_RISK_SECURITY_ALERT] HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED: Server permitted duplicate transaction replay!\n"
-                        },
-                        {
-                          "text": "Details: {\n  \"transactionId\": \"txn_f49334e4028369e93b658f00\",\n  \"replayedMac\": \"386fc03d223b820f0271a1f3b5a377648b04a7de97bf6720dcb73c226f8728a8ee74d3388919cae67906709867b8446bc4dbe09c9d1cddc87aa69224c611a420\",\n  \"duplicateResponseStatus\": 200,\n  \"duplicateResponseBody\": {\n    \"status\": \"SETTLED\",\n    \"transactionId\": \"txn_f49334e4028369e93b658f00\",\n    \"settledAt\": 1789316407374,\n    \"proofOfWorkMac\": \"386fc03d223b820f0271a1f3b5a377648b04a7de97bf6720dcb73c226f8728a8ee74d3388919cae67906709867b8446bc4dbe09c9d1cddc87aa69224c611a420\"\n  }\n}\n\n"
-                        }
-                      ],
-                      "retry": 0,
-                      "startTime": "2026-09-13T16:20:07.366Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1b909e28f501beb796bc-ef4fc7d386fcbffb960e",
-              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 200,
+              "id": "414d4760a35ae39039c0-4418e4ca2f41edc90c50",
+              "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
+              "line": 103,
               "column": 3
             }
           ]
@@ -292,9 +265,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-13T16:20:06.978Z",
-    "duration": 415.8159999999999,
-    "expected": 4,
+    "startTime": "2026-09-13T16:21:58.995Z",
+    "duration": 903.7289999999999,
+    "expected": 3,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
