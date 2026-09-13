@@ -1,110 +1,45 @@
 # Final Requirements Matrix & Compliance Audit
-**Project:** Frugal QA Lab  
-**Evaluation:** Frugal Testing / BuildNexTech — AI-Native Software Engineer Intern Assessment  
-**Author / Candidate:** Jatin Senpai  
-**Audit Date:** September 2026  
-**Overall Status:** **100% AUDITED & FULLY COMPLIANT**
+**Repository:** `frugal-qa-lab` (`git@github.com:jatin-senpai/frugal-qa-lab.git`)  
+**Assessment:** Frugal Testing / BuildNexTech — AI-Native Software Engineer Intern  
+**Audit Stage:** Stage 1 Comprehensive Pre-Coding Audit  
+**Audit Standard:** Strict verification — no item marked COMPLETE without real execution evidence; all candidate-dependent items marked `NEEDS_VERIFICATION`.
 
 ---
 
-## 1. Master Requirements Traceability Matrix
+## 1. Traceability & Requirements Status Matrix
 
-| Question / Section | Requirement Specification | Implemented | Tested | Evidence Artifact | Submission Location | Status |
-| :--- | :--- | :---: | :---: | :--- | :--- | :---: |
-| **Section 0** | Pre-Evaluation Disclosures: 36mo bond consent, CTC, relocation to Hyderabad, motivation, why Frugal Testing | **YES** (`section-0/alignment.md`) | Verified | Formally articulated disclosures | `section-0/alignment.md` & Primary PDF | **COMPLETE** |
-| **Q1.1** | WebSocket Stream Corruption & Jitter: Fibonacci scaling delay ($1000\text{ms} \times \text{Fib}(n)$ capped at $8000\text{ms}$) | **YES** (`q1-canvas-chaos/src/networkChaos.js`) | **YES** (Test 1) | `evidence/q1/results.json`, `execution.log` (89 intercepted frames) | `q1-canvas-chaos/` & Drive Folder Q1 | **COMPLETE** |
-| **Q1.2** | Anti-AI Constraint: Zero DOM locators, zero static sleeps, requestAnimationFrame pixel-state detector (Gray $\rightarrow$ Green) | **YES** (`q1-canvas-chaos/src/pixelDetector.js`) | **YES** (Test 1) | `evidence/q1/01-canvas-loading-gray.png`, `02-canvas-active-green.png` | `q1-canvas-chaos/` & Drive Folder Q1 | **COMPLETE** |
-| **Q1.3** | Race Injection Trap: Chained action (`Hover` $\rightarrow$ `Drag 15px X` $\rightarrow$ `Click`) inside 30ms–100ms window | **YES** (`q1-canvas-chaos/src/actionChainer.js`) | **YES** (Test 2) | `evidence/q1/03-canvas-order-executed.png`, measured duration: 80.47ms | `q1-canvas-chaos/` & Drive Folder Q1 | **COMPLETE** |
-| **Q1.4** | Coordinate Resilience: Dynamic circuit-breaker handling coordinate drift, stale frames, and repaint delays | **YES** (`q1-canvas-chaos/src/circuitBreaker.js`) | **YES** (Test 3) | Pre-flight revalidation logs, drift offset recalculation | `q1-canvas-chaos/` & Drive Folder Q1 | **COMPLETE** |
-| **Q1.5** | Mismatched Server Boundary Checking: Corrupted mathematical state (`balance: "1e+7"`) triggering structured error boundary | **YES** (`q1-canvas-chaos/app/app.js`) | **YES** (Test 4) | `evidence/q1/04-canvas-error-boundary.png`, `ERR_STATE_CORRUPTION_MATHEMATICAL_BOUNDARY` | `q1-canvas-chaos/` & Drive Folder Q1 | **COMPLETE** |
-| **Q2.1** | Dynamic Sequence Chaining: `POST /transactions` issuing transaction ID header and challenge token | **YES** (`q2-crypto-replay/server/app.js`) | **YES** (Test 1) | `evidence/q2/results.json`, `X-Transaction-Id: txn_...` | `q2-crypto-replay/` & Drive Folder Q2 | **COMPLETE** |
-| **Q2.2** | Cryptographic Nonce Injection: `PUT /transactions/:id` with dynamic HMAC-SHA512 (`X-Frugal-Mac`), microsecond timestamp, canonical body | **YES** (`q2-crypto-replay/src/cryptoSigner.js`) | **YES** (Test 1) | Settled status 200 OK, proof-of-work MAC verification | `q2-crypto-replay/` & Drive Folder Q2 | **COMPLETE** |
-| **Q2.3** | Replay Attack Vector: Duplicate payload resent with identical timestamp and MAC within $<150\text{ ms}$ | **YES** (`q2-crypto-replay/src/replayClient.js`) | **YES** (Test 2) | Burst delta: 0.91ms ($\le 150\text{ ms}$), exact payload duplicate | `q2-crypto-replay/` & Drive Folder Q2 | **COMPLETE** |
-| **Q2.4** | Replay Assertion (HTTP 409 Conflict): Backend drops replay, returns HTTP 409, logs audit trail | **YES** (`q2-crypto-replay/server/app.js`) | **YES** (Test 2) | HTTP 409 Conflict, `ERR_TRANSACTION_REPLAY_DETECTED` | `q2-crypto-replay/` & Drive Folder Q2 | **COMPLETE** |
-| **Q2.5** | Negative Mutation Matrix: Tampered body (401), tampered timestamp (401), corrupted MAC (401), stale timestamp (422) | **YES** (`q2-crypto-replay/tests/crypto-replay.spec.js`) | **YES** (Test 3) | Deterministic 401 and 422 HTTP responses verified | `q2-crypto-replay/` & Drive Folder Q2 | **COMPLETE** |
-| **Q2.6** | Vulnerability Alert Layer: Throws high-risk data-mutation vulnerability alert if duplicate succeeds | **YES** (`q2-crypto-replay/src/telemetry.js`) | **YES** (Test 4) | `CRITICAL_HIGH_RISK` alert logged upon simulated replay breach | `q2-crypto-replay/` & Drive Folder Q2 | **COMPLETE** |
-| **Q3.1** | Resilient Shadow DOM Piercing: Locating target elements across nested custom elements with regenerating obfuscated classes | **YES** (`q3-shadow-dom/src/shadowPiercer.js`) | **YES** (Test 1) | `evidence/q3/01-shadow-dom-pierced.png`, regex `obfuscated_v4_[a-z0-9]+` | `q3-shadow-dom/` & Drive Folder Q3 | **COMPLETE** |
-| **Q3.2** | W3C Closed Boundary Security Proof: Documenting browser security boundary where `element.shadowRoot === null` | **YES** (`q3-shadow-dom/src/shadowPiercer.js`) | **YES** (Test 2) | Asserted `terminal.shadowRoot === null`; harness injection documented | `q3-shadow-dom/` & Drive Folder Q3 | **COMPLETE** |
-| **Q3.3** | Accessibility Tree Pathfinding: Locating control via semantic AXTree primitives (`getByRole('button')`) decoupled from DOM | **YES** (`q3-shadow-dom/tests/shadow-dom.spec.js`) | **YES** (Test 3) | `evidence/q3/02-accessibility-tree-authorized.png`, `ariaSnapshot` | `q3-shadow-dom/` & Drive Folder Q3 | **COMPLETE** |
-| **Q3.4** | Expert CoT System Prompt: Prompt training LLMs to navigate OS Accessibility Trees, strictly forbidding IDs, classes, XPaths, text | **YES** (`q3-shadow-dom/src/systemPromptCoT.md`) | Verified | 5-phase CoT prompt specification adhering to negative constraints | `q3-shadow-dom/src/systemPromptCoT.md` | **COMPLETE** |
-| **Q4–Q20** | 17 Analytical Engineering Scenarios: Systems, OOM, AST diffing, HikariCP, MCP, Tracing, HIPAA, OpenAPI | **YES** (`section-b/answers.md`) | Verified ($\le 150\text{ words}$) | All 17 answers strictly formatted under 6-point reasoning | `section-b/answers.md` & Primary PDF | **COMPLETE** |
-| **Sit. A–D** | 4 Behavioral Alignment Scenarios: Pragmatic engineering trade-offs (Legacy Crash, Agent Alignment, Ambiguity, Code Coverage) | **YES** (`section-b/answers.md`) | Verified | Defensible, Senior Staff-level rationales for Choices ii, i, ii, i | `section-b/answers.md` & Primary PDF | **COMPLETE** |
-| **Q21** | Professional Technical Article: Topic B (Securing AI Workspace: Restrictive MCP Sandboxes, 750–1500 words) | **YES** (`section-b/article.md`) | Verified (1,408 words) | Publication-grade architecture article with threat model, schemas, C++/Node syscalls | `section-b/article.md` & Primary PDF | **COMPLETE** |
-| **Q22** | Profile & Portfolio Compilation: Verified credentials, repository links, and social channel engagement proofs | **YES** (`section-b/portfolio.md`) | Verified | Structured portfolio with GitHub links and social checklist | `section-b/portfolio.md` & Primary PDF | **COMPLETE** |
-| **Q23** | Video CV Presentation: 2–3 minute high-impact script addressing 4 core prompts | **YES** (`section-b/video_cv_script.md`) | Timed (2m 30s, 350 words) | Articulate, systems-grounded presentation script | `section-b/video_cv_script.md` & Primary PDF | **COMPLETE** |
-
----
-
-## 2. Quality & Compliance Audits
-
-### 2.1 Code Sanity & Syntax Check
-- **Status:** **PASSED**
-- All JavaScript files are ES Modules (`"type": "module"`).
-- Zero syntax errors, zero deprecated APIs.
-
-### 2.2 Dependency Audit
-- **Status:** **PASSED**
-- Production dependencies: `express` (v4.21.2), `ws` (v8.18.0), `cors` (v2.8.5).
-- Dev dependencies: `@playwright/test` (v1.49.1).
-- No unnecessary external bloat; native Node.js `crypto` utilized for all HMAC-SHA512 operations.
-
-### 2.3 Reproducibility Verification
-- **Status:** **PASSED (11 of 11 tests passed in 12.9s)**
-- Execution command: `npm test`
-- Q1 Canvas Chaos: 4 tests passed
-- Q2 Crypto Replay: 4 tests passed
-- Q3 Shadow DOM: 3 tests passed
-- Zero flaky failures, zero race condition timeouts.
-
-### 2.4 Word Count Verification
-- **Section B Scenarios (Q4 through Q20):**
-  - Q4: 147 words ($\le 150$) ✓
-  - Q5: 143 words ($\le 150$) ✓
-  - Q6: 129 words ($\le 150$) ✓
-  - Q7: 142 words ($\le 150$) ✓
-  - Q8: 138 words ($\le 150$) ✓
-  - Q9: 144 words ($\le 150$) ✓
-  - Q10: 147 words ($\le 150$) ✓
-  - Q11: 149 words ($\le 150$) ✓
-  - Q12: 141 words ($\le 150$) ✓
-  - Q13: 124 words ($\le 150$) ✓
-  - Q14: 148 words ($\le 150$) ✓
-  - Q15: 145 words ($\le 150$) ✓
-  - Q16: 148 words ($\le 150$) ✓
-  - Q17: 150 words ($\le 150$) ✓
-  - Q18: 149 words ($\le 150$) ✓
-  - Q19: 146 words ($\le 150$) ✓
-  - Q20: 149 words ($\le 150$) ✓
-- **Q21 Technical Article:**
-  - Total Words: **1,408 words** (Mandatory Range: 750–1500 words) ✓
-
-### 2.5 Security & Integrity Audit
-- **Status:** **PASSED**
-- Constant-time cryptographic comparison (`crypto.timingSafeEqual`) prevents side-channel timing attacks.
-- Path traversal filters (`^[a-zA-Z0-9_-]+\.log$`) enforce strict directory jailing.
-- Mathematical corruption boundaries prevent client-side float and scientific notation injection.
-- Zero fabricated metrics, zero simulated passes, zero mock external endpoints.
+| ID | PDF Section & Question | Authoritative Requirement Specification | Repository Implementation Component | File / Path Responsible | Test / Verification Evidence | Current Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :---: |
+| **REQ-00** | **Section 0 (p. 4)** | Pre-Evaluation Disclosures: Consent to 36mo bond, CTC/stipend confirmation, Hyderabad relocation, motivation, firm choice | Formally articulated alignment answers | `section-0/alignment.md` | Verified against PDF disclosure prompts | **IMPLEMENTED** |
+| **REQ-01** | **Section A: Q1.1 (p. 5)** | Local Canvas Testbed & WebSocket Stream Corruption: Ingest live stream via standard WebSockets (`ws://`) | Express + `ws` server and HTML5 Canvas terminal | `q1-canvas-chaos/server/wsServer.js`<br>`q1-canvas-chaos/app/app.js` | Server health checks, live socket streaming | **IMPLEMENTED** |
+| **REQ-02** | **Section A: Q1.1 (p. 5)** | WebSocket Fibonacci Delay Progression: Inject delay model ($1000\text{ms} \times \text{Fib}(n)$ capped at $8000\text{ms}$) | Interceptor injecting sequence: 1s, 1s, 2s, 3s, 5s, 8s, 8s | `q1-canvas-chaos/src/networkChaos.js` | `evidence/q1/results.json`<br>(89 intercepted frames logged) | **IMPLEMENTED** |
+| **REQ-03** | **Section A: Q1.2 (p. 5)** | Anti-AI Zero-DOM Constraint: requestAnimationFrame canvas pixel detector (gray loading $\rightarrow$ active green); NO static sleeps or DOM locators | Embedded rAF loop evaluating `ctx.getImageData()` across interactive button bounds | `q1-canvas-chaos/src/pixelDetector.js` | `canvas-chaos.spec.js` (Test 1)<br>`evidence/q1/01-canvas-loading-gray.png`<br>`evidence/q1/02-canvas-active-green.png` | **IMPLEMENTED** |
+| **REQ-04** | **Section A: Q1.3 (p. 5)** | Race Injection Trap: Chained action (`Hover` $\rightarrow$ `Drag 15px X` $\rightarrow$ `Click`) executed within 30ms–100ms race window | Precision mouse event dispatcher tracking microsecond timing | `q1-canvas-chaos/src/actionChainer.js` | `canvas-chaos.spec.js` (Test 2)<br>Duration: 80.47ms ($\le 100\text{ms}$)<br>`evidence/q1/03-canvas-order-executed.png` | **NEEDS_VERIFICATION**<br>*(Clock sync between browser rAF and Node runner needs unification)* |
+| **REQ-05** | **Section A: Q1.3 (p. 5)** | Coordinate Drift Resilience: Circuit-breaker macro handling repaint delays, coordinate drift, and stale frames | Pre-flight and in-flight pixel revalidator with active contour recovery scan | `q1-canvas-chaos/src/circuitBreaker.js` | `canvas-chaos.spec.js` (Test 3)<br>Drift recovered; order executed | **PARTIAL**<br>*(Needs forced mid-action trip test to explicitly verify TRIPPED state transition)* |
+| **REQ-06** | **Section A: Q1.4 (p. 5)** | Server Boundary Mismatch: Inject mathematical corruption (`balance: "1e+7"`, fractional floats); verify frontend error boundary halts corruption | Type validation schema catching scientific notation / unrounded cents; displays `<div id="canvas-error-boundary">` | `q1-canvas-chaos/app/app.js`<br>`q1-canvas-chaos/app/index.html` | `canvas-chaos.spec.js` (Test 4)<br>`evidence/q1/04-canvas-error-boundary.png`<br>`ERR_STATE_CORRUPTION_MATHEMATICAL_BOUNDARY` | **IMPLEMENTED** |
+| **REQ-07** | **Section A: Q2.1 (p. 6)** | Dynamic Sequence Chaining: `POST /transactions` issuing transaction ID wrapper extracted from response header | Express mock settlement gateway issuing `X-Transaction-Id` header and challenge token | `q2-crypto-replay/server/app.js`<br>`q2-crypto-replay/src/replayClient.js` | `crypto-replay.spec.js` (Test 1)<br>`evidence/q2/results.json`<br>Header matched: `^txn_[a-f0-9]{24}$` | **IMPLEMENTED** |
+| **REQ-08** | **Section A: Q2.2 (p. 6)** | Cryptographic Nonce Injection: `PUT /transactions/:id` with dynamic `X-Frugal-Mac` (HMAC-SHA512 over body, microsecond ts, salt) | Canonicalizer (ASCII key sort) + microsecond timestamp + HMAC-SHA512 signer | `q2-crypto-replay/src/cryptoSigner.js` | `crypto-replay.spec.js` (Test 1)<br>Settled status 200 OK | **PARTIAL**<br>*(Incorporate server-issued timestamp explicitly into string-to-sign)* |
+| **REQ-09** | **Section A: Q2.3 (p. 6)** | Exact Replay Attack Vector: Resend identical payload with identical timestamp and MAC within $<150\text{ ms}$ | High-resolution burst dispatcher firing duplicate PUT payload | `q2-crypto-replay/src/replayClient.js` | `crypto-replay.spec.js` (Test 2)<br>Burst delta: 0.57ms–0.91ms ($\le 150\text{ ms}$) | **IMPLEMENTED** |
+| **REQ-10** | **Section A: Q2.4 (p. 6)** | Replay Assertion & Rejection: Server rejects replay with `HTTP 409 Conflict` (documented state conflict) | Sliding-window in-memory signature cache in Express gateway | `q2-crypto-replay/server/app.js` | `crypto-replay.spec.js` (Test 2)<br>`HTTP 409 Conflict`<br>`ERR_TRANSACTION_REPLAY_DETECTED` | **IMPLEMENTED** |
+| **REQ-11** | **Section A: Q2.4 (p. 6)** | Negative Security Mutation Suite: Tampered body, tampered timestamp, corrupted MAC, stale timestamp | Negative test vectors exercising cryptographic boundary validations | `q2-crypto-replay/tests/crypto-replay.spec.js` | `crypto-replay.spec.js` (Test 3)<br>401 Unauthorized & 422 Unprocessable | **IMPLEMENTED** |
+| **REQ-12** | **Section A: Q2.4 (p. 6)** | High-Risk Vulnerability Alert: Framework must throw critical alert if replay is mistakenly accepted (200 OK) | Intentionally unvalidated route + framework security alert handler | `q2-crypto-replay/src/telemetry.js`<br>`q2-crypto-replay/tests/crypto-replay.spec.js` | `crypto-replay.spec.js` (Test 4)<br>`CRITICAL_HIGH_RISK` alert logged | **IMPLEMENTED** |
+| **REQ-13** | **Section A: Q3.1 (p. 7)** | Obfuscated Shadow DOM Traversal: Resilient JS tree walker traversing open roots with regenerating dynamic classes | Recursive open shadow DOM walker matching functional ARIA roles | `q3-shadow-dom/src/shadowPiercer.js`<br>`q3-shadow-dom/app/components.js` | `shadow-dom.spec.js` (Test 1)<br>Dynamic class `obfuscated_v4_*` pierced<br>`evidence/q3/01-shadow-dom-pierced.png` | **IMPLEMENTED** |
+| **REQ-14** | **Section A: Q3.2 (p. 7)** | Closed Shadow Root Boundary: Programmatic proof that `element.shadowRoot === null`; document browser security boundary | W3C specification analysis & runtime assertion of null shadowRoot | `q3-shadow-dom/src/shadowPiercer.js` | `shadow-dom.spec.js` (Test 2)<br>Verified `element.shadowRoot === null` | **IMPLEMENTED** |
+| **REQ-15** | **Section A: Q3.3 (p. 7)** | Accessibility Tree Pathfinding: Locating control via semantic accessibility tree (AXTree) without DOM IDs/classes | Playwright `getByRole('button')` and `ariaSnapshot` traversal | `q3-shadow-dom/tests/shadow-dom.spec.js` | `shadow-dom.spec.js` (Test 3)<br>`evidence/q3/02-accessibility-tree-authorized.png` | **NEEDS_VERIFICATION**<br>*(Verify AXTree behavior on closed roots without test harness)* |
+| **REQ-16** | **Section A: Q3.4 (p. 7)** | Expert CoT System Prompt: Train LLM to reason from OS Accessibility Tree, strictly forbidding IDs, classes, XPaths, text | High-quality system prompt with 5 reasoning phases, negative constraints, decision criteria | `q3-shadow-dom/src/systemPromptCoT.md` | Verified against negative constraints | **IMPLEMENTED** |
+| **REQ-17** | **Section B: Q4–Q20 (p. 8–16)** | 17 Analytical Engineering Scenarios: Systems, OOM, AST diffing, HikariCP, MCP, Tracing, HIPAA, OpenAPI | Structured answers using 6-point internal reasoning; strictly $\le 150\text{ words}$ each | `section-b/answers.md` | Automated script verified: all 17 answers strictly $\le 150$ words | **IMPLEMENTED** |
+| **REQ-18** | **Section B: Sit. A–D (p. 16–17)** | Behavioral Alignment Profiles: 4 scenarios evaluated against Senior Staff engineering judgment | Crisp rationales for Choices ii, i, ii, i | `section-b/answers.md` | Verified against professional engineering standards | **IMPLEMENTED** |
+| **REQ-19** | **Section B: Q21 (p. 17)** | Professional Technical Article: Topic B (Securing AI Workspace: Restrictive MCP Sandboxes, 750–1500 words) | Full publication-grade architectural article (Linux namespaces, seccomp, Landlock, Node.js dispatcher) | `section-b/article.md` | Word count verified: 1,408 words | **IMPLEMENTED** |
+| **REQ-20** | **Section B: Q22 (p. 17–18)** | Profile & Technical Portfolio Compilation: Verified credentials, repositories, and social engagement screenshots | Structured template with verified GitHub links and social engagement checklist | `section-b/portfolio.md` | Placeholders labeled `[REQUIRES CANDIDATE INPUT]` | **NEEDS_VERIFICATION**<br>*(Awaiting candidate's personal URLs & screenshots)* |
+| **REQ-21** | **Section B: Q23 (p. 18)** | Video Evaluation Presentation (Video CV): 2–3 minute high-impact script addressing 4 core prompts | Timed script (350 words, ~2m 30s) structured across all 4 mandatory prompts | `section-b/video_cv_script.md` | Script ready; candidate personal examples flagged | **NEEDS_VERIFICATION**<br>*(Awaiting candidate's personal recording)* |
+| **REQ-22** | **Formatting & Video (p. 3–4)** | 3 Mandatory Video Checkpoints (Output Window, Source Code, GenAI Prompt History) for Q1, Q2, Q3 | Video walkthrough documentation in each module's README | `q1-canvas-chaos/README.md`<br>`q2-crypto-replay/README.md`<br>`q3-shadow-dom/README.md` | Plans complete; recordings must be performed by candidate | **NEEDS_VERIFICATION**<br>*(Awaiting candidate screen recording)* |
 
 ---
 
-## 3. Submission Artifacts & Formatting Compliance
+## 2. Status Summary
 
-### File Naming Convention for Final Submission:
-`<Name_of_Candidate>_<CollegeName>_<Roll_Number>.pdf`
-
-### Document Structure Checklist:
-1. **Section 0:** Pre-Evaluation Disclosures & Alignment
-2. **Section A:** Practical Anti-AI Engineering & Automation
-   - **Q1 Link:** Google Drive Folder Link (Source code + combined walkthrough video)
-   - **Q2 Link:** Google Drive Folder Link (Source code + combined walkthrough video)
-   - **Q3 Link:** Google Drive Folder Link (Artifacts/scripts + combined walkthrough video)
-3. **Section B:** Analytical Questions (Q4 through Q20)
-4. **Behavioral & Fit Evaluation:** Situations A through D
-5. **Q21:** Professional Technical Article (Topic B)
-6. **Q22:** Profile, Portfolio Repositories, and Social Engagement Screenshots
-7. **Q23:** Video CV Presentation Link (Google Drive URL, 2–3 minutes)
-
-### Mandatory Video Checkpoints (Recorded for Q1, Q2, Q3):
-1. **Output Window:** Showing terminal test execution and passing assertions.
-2. **Source Code:** Scrolling through IDE implementation and directory hierarchy.
-3. **GenAI Usage & Prompt History:** Displaying chat window showing prompt engineering, iterative queries, and debugging history.
+- **Total Requirements Tracked:** 22
+- **Fully IMPLEMENTED:** 17
+- **PARTIAL:** 2 (REQ-05 Circuit Breaker forced-trip test; REQ-08 server timestamp inclusion in HMAC)
+- **NEEDS_VERIFICATION:** 3 (REQ-04 clock synchronization; REQ-20 candidate portfolio inputs; REQ-21/22 video recordings)
+- **MISSING:** 0
