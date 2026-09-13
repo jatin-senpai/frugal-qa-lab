@@ -30,16 +30,16 @@ The project maps directly to every requirement across the 18-page assessment spe
 
 | Assessment Section | Component / Topic | Max Points | Implementation Location | Execution Result |
 | :--- | :--- | :---: | :--- | :---: |
-| **Section 0** | Alignment & Pre-Evaluation Disclosures | Mandatory | [`section-0/alignment.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-0/alignment.md) | Formally Complete (Q1–Q6) |
-| **Section A (Q1)** | Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interception | 15 Points | [`q1-canvas-chaos/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q1-canvas-chaos/) | **4/4 Tests Passed** (12.4s) |
-| **Section A (Q2)** | Cryptographic Replay Testing, Stateful Nonces & Hash-Chain API Chaining | 4 Points | [`q2-crypto-replay/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q2-crypto-replay/) | **4/4 Tests Passed** (486ms) |
-| **Section A (Q3)** | Sealed Closed-Boundary Shadow DOM Pathfinding & Accessibility Tree Refactoring | 1 Point | [`q3-shadow-dom/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q3-shadow-dom/) | **3/3 Tests Passed** (918ms) |
-| **Section B (Q4–Q20)** | 17 Analytical Engineering Scenarios (5 pts each, Q19 compulsory) | 70 Points | [`section-b/answers.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/answers.md) | Verified ($\le 150$ words each) |
-| **Section B (Situations)** | Situations A–D: Behavioral Alignment Decisions | Assessed | [`section-b/answers.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/answers.md) | Verified (ii, i, ii, i) |
-| **Section B (Q21)** | Technical Article (Topic B: Restrictive MCP Sandboxes) | 5 Points | [`section-b/article.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/article.md) | 1,390 words ($750\text{--}1500$ range) |
-| **Deliverables (Q22)** | Profile & Technical Portfolio Compilation | Compulsory | [`section-b/portfolio.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/portfolio.md) | Candidate input placeholders marked |
-| **Deliverables (Q23)** | Video CV Evaluation Presentation Script | 5 Points | [`section-b/video_cv_script.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/video_cv_script.md) | 2m 30s timed script |
-| **Audit Matrix** | Requirement-by-Requirement Verification Matrix | — | [`FINAL_REQUIREMENTS_MATRIX.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/FINAL_REQUIREMENTS_MATRIX.md) | Matrix Complete |
+| **Section 0** | Alignment & Pre-Evaluation Disclosures | Mandatory | [`section-0/alignment.md`](./section-0/alignment.md) | Formally Complete (Q1–Q6) |
+| **Section A (Q1)** | Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interception | 15 Points | [`q1-canvas-chaos/`](./q1-canvas-chaos/) | **4/4 Tests Passed** (12.4s) |
+| **Section A (Q2)** | Cryptographic Replay Testing, Stateful Nonces & Hash-Chain API Chaining | 4 Points | [`q2-crypto-replay/`](./q2-crypto-replay/) | **4/4 Tests Passed** (486ms) |
+| **Section A (Q3)** | Sealed Closed-Boundary Shadow DOM Pathfinding & Accessibility Tree Refactoring | 1 Point | [`q3-shadow-dom/`](./q3-shadow-dom/) | **3/3 Tests Passed** (918ms) |
+| **Section B (Q4–Q20)** | 17 Analytical Engineering Scenarios (5 pts each, Q19 compulsory) | 70 Points | [`section-b/answers.md`](./section-b/answers.md) | Verified ($\le 150$ words each) |
+| **Section B (Situations)** | Situations A–D: Behavioral Alignment Decisions | Assessed | [`section-b/answers.md`](./section-b/answers.md) | Verified (ii, i, ii, i) |
+| **Section B (Q21)** | Technical Article (Topic B: Restrictive MCP Sandboxes) | 5 Points | [`section-b/article.md`](./section-b/article.md) | 1,390 words ($750\text{--}1500$ range) |
+| **Deliverables (Q22)** | Profile & Technical Portfolio Compilation | Compulsory | [`section-b/portfolio.md`](./section-b/portfolio.md) | Candidate input placeholders marked |
+| **Deliverables (Q23)** | Video CV Evaluation Presentation Script | 5 Points | [`section-b/video_cv_script.md`](./section-b/video_cv_script.md) | 2m 30s timed script |
+| **Audit Matrix** | Requirement-by-Requirement Verification Matrix | — | [`FINAL_REQUIREMENTS_MATRIX.md`](./FINAL_REQUIREMENTS_MATRIX.md) | Matrix Complete |
 | **Total** | **All Sections Combined** | **100 Points** | **Unified Repository** | **11/11 Automated Tests Passed (12.9s)** |
 
 ---
@@ -281,8 +281,8 @@ npm run start:q3
 ### Verified Behaviors Proven by Q3 Tests:
 1. **Resilient Open Shadow DOM Traversal**: Navigates multi-level nested custom elements (`<enterprise-portal>` $\to$ `<payment-terminal>`) across regenerating dynamic CSS classes (`.obfuscated_v4_...`), successfully locating and clicking the target button without static IDs or brittle XPath.
 2. **W3C Closed Boundary Security Proof**: Proves programmatically that `element.shadowRoot` strictly returns `null` for closed shadow roots in standard runtime JavaScript, documenting why test harnesses and CDP sessions are necessary.
-3. **OS Accessibility Tree Pathfinding**: Demonstrates locating and executing controls decoupled from DOM encapsulation using accessibility semantics (`page.getByRole('button', { name: 'Authorize Ledger Funds' })`).
-4. **Chain-of-Thought System Prompt**: Includes a production-grade 5-phase prompt ([`systemPromptCoT.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q3-shadow-dom/src/systemPromptCoT.md)) instructing autonomous agents to navigate accessibility trees without relying on fragile DOM attributes.
+3. **OS Accessibility Tree Pathfinding & Closed Boundary Verification**: Proves that standard in-page DOM locators (`getByRole`) evaluate to `isVisible() === false` inside closed Shadow DOM, and uses Chrome DevTools Protocol (`Accessibility.getFullAXTree` + `DOM.getBoxModel` coordinate clicking) to resolve the node via the native browser accessibility engine without DOM piercing.
+4. **Chain-of-Thought System Prompt**: Includes a production-grade 5-phase prompt ([`systemPromptCoT.md`](./q3-shadow-dom/src/systemPromptCoT.md)) instructing autonomous agents to navigate accessibility trees without relying on fragile DOM attributes.
 
 ---
 
@@ -359,10 +359,11 @@ Running 11 tests using 1 worker
   ✓  10 [chromium] › q3-shadow-dom/tests/shadow-dom.spec.js:77:3 (84ms)
 
 [TEST_START] Resolving target control via pure OS Accessibility Tree semantics
-[ASSERTION:PASS] Located control through computed accessibility tree without DOM IDs or class selectors
-[ASSERTION:PASS] Successfully committed financial ledger action via Accessibility Tree locator
+[ASSERTION:PASS] Verified platform limitation: Standard in-page DOM getByRole cannot penetrate closed shadow roots
+[ASSERTION:PASS] Blink Accessibility Engine successfully extracted button node across closed shadow root
+[ASSERTION:PASS] Successfully committed financial ledger action via native browser Accessibility Tree coordinates without DOM piercing
 [Test Teardown] Q3 Server stopped.
-  ✓  11 [chromium] › q3-shadow-dom/tests/shadow-dom.spec.js:103:3 (200ms)
+  ✓  11 [chromium] › q3-shadow-dom/tests/shadow-dom.spec.js:103:3 (187ms)
 
   11 passed (12.9s)
 ```
@@ -420,7 +421,7 @@ The test configuration automatically updates the files in `evidence/` on each ru
 
 5. **W3C Closed Boundary Handling**:
    - Browser platform specifications dictate that `Element.attachShadow({ mode: "closed" })` causes `element.shadowRoot` to evaluate strictly to `null` in page JavaScript.
-   - Rather than attempting to fabricate a non-existent DOM bypass, the framework acknowledges this browser platform boundary, validates it with explicit assertions, and uses the OS Accessibility Tree (`page.getByRole`) as the resilient automation mechanism.
+   - Rather than attempting to fabricate a non-existent DOM bypass, the framework acknowledges this browser platform boundary, validates it with explicit assertions (standard in-page `getByRole` returns `isVisible() === false`), and uses Chromium's native Accessibility Tree via Chrome DevTools Protocol (`Accessibility.getFullAXTree` + `DOM.getBoxModel`) to resolve and interact with controls via native layout coordinates without DOM piercing.
 
 ---
 
@@ -461,7 +462,7 @@ The test configuration automatically updates the files in `evidence/` on each ru
 
 This project is built to be 100% reproducible across operating systems (macOS, Linux, Windows WSL2):
 - **Zero Third-Party Cloud Dependencies**: All services, mock APIs, and WebSocket brokers run entirely on `localhost`.
-- **Zero Flaky Timeouts**: Synchronization relies entirely on event-driven assertions, `requestAnimationFrame` polling, and HTTP response promises—no arbitrary `page.waitForTimeout()` sleeps are used.
+- **Zero Flaky Timeouts**: Synchronization relies entirely on event-driven assertions, `requestAnimationFrame`-driven pixel-state observation, and HTTP response promises—no arbitrary `page.waitForTimeout()` sleeps are used.
 - **Hermetic Lifecycle Management**: Each test module manages its own server lifecycle via Playwright `beforeAll` / `afterAll` hooks, ensuring clean startup and teardown.
 
 ---
@@ -475,9 +476,9 @@ Per pages 3 & 4 of the assessment specification, video recordings for Section A 
 2. **Checkpoint 2: The Source Code**  
    IDE walkthrough of file architecture, mathematical algorithms (Fibonacci jitter, pixel detection loops, HMAC canonicalization), and error boundaries.
 3. **Checkpoint 3: GenAI Usage & Prompt History**  
-   Review of prompt engineering strategies, structured Chain-of-Thought prompts ([`systemPromptCoT.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q3-shadow-dom/src/systemPromptCoT.md)), and iterative debugging queries used throughout development.
+   Review of prompt engineering strategies, structured Chain-of-Thought prompts ([`systemPromptCoT.md`](./q3-shadow-dom/src/systemPromptCoT.md)), and iterative debugging queries used throughout development.
 
 Detailed walkthrough plans for each question are provided in:
-- [`q1-canvas-chaos/README.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q1-canvas-chaos/README.md)
-- [`q2-crypto-replay/README.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q2-crypto-replay/README.md)
-- [`q3-shadow-dom/README.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q3-shadow-dom/README.md)
+- [`q1-canvas-chaos/README.md`](./q1-canvas-chaos/README.md)
+- [`q2-crypto-replay/README.md`](./q2-crypto-replay/README.md)
+- [`q3-shadow-dom/README.md`](./q3-shadow-dom/README.md)

@@ -98,7 +98,7 @@ The orderbook ticks stream over a local WebSocket server (`ws://localhost:3001/w
 ### 2.3 Zero-DOM Pixel Detection (`q1-canvas-chaos/src/pixelDetector.js`)
 
 Because standard Playwright locators (`page.locator('button')`) cannot find elements drawn on a canvas, we implement an embedded in-page pixel detector that observes the canvas directly:
-- **`requestAnimationFrame` Polling**: The observer runs inside the browser context using `page.evaluate()`, checking frames synchronously with the browser's display refresh rate.
+- **`requestAnimationFrame`-driven pixel-state observation**: The observer runs inside the browser context using `page.evaluate()`, checking frames synchronously with the browser's display refresh rate (`requestAnimationFrame`).
 - **Dual-State Detection**:
   1. *Phase 1 (Confirm Loading)*: Scans the interactive zone ($y \ge 180$) to verify that pixels match the loading gray threshold ($|R-120| \le 25, |G-136| \le 25, |B-150| \le 25$).
   2. *Phase 2 (Detect Transition)*: Scans for active green pixels ($G > 180, R < 80, B < 160$).
@@ -109,9 +109,9 @@ Because standard Playwright locators (`page.locator('button')`) cannot find elem
 
 The assessment requires executing a compound mouse sequence within a strict **30–100ms race window** following state activation:
 1. **Action Sequence**: `Hover` $\to$ `Mouse Down` $\to$ `Drag 15px along X-axis` $\to$ `Mouse Up / Click`.
-2. **Unified Clock Domains**: To avoid clock skew between the Node.js test process and browser DOM contexts, the detection timestamp is recorded in the Node process immediately when the pixel detection promise resolves. The action sequence executes, measuring:
-   - `totalElapsedSinceDetectionMs`: $85.64\text{ms}$ (strictly within $30\text{--}100\text{ms}$).
-   - `actionExecutionDurationMs`: $81.78\text{ms}$ ($\le 100\text{ms}$).
+2. **Unified Clock Domains**: To avoid clock skew between the Node.js test process and browser DOM contexts, the detection timestamp is recorded in the Node process immediately when the pixel detection promise resolves. The action sequence executes, dynamically asserting:
+   - `totalElapsedSinceDetectionMs`: Strictly within the $[30, 100]\text{ms}$ race window (dynamically measured: typically $75\text{--}89\text{ms}$ based on CPU scheduling).
+   - `actionExecutionDurationMs`: Strictly $\le 100\text{ms}$ (dynamically measured: typically $75\text{--}85\text{ms}$).
 
 ### 2.5 Coordinate Drift Circuit-Breaker (`q1-canvas-chaos/src/circuitBreaker.js`)
 
@@ -218,11 +218,13 @@ Per the W3C DOM Level 4 and Shadow DOM v1 specifications:
 - In standard page runtime JavaScript, `element.shadowRoot` strictly returns **`null`**.
 - *Engineering Principle*: The framework explicitly tests and proves this boundary (`expect(closedHost.shadowRoot).toBeNull()`). It documents why theoretical claims of "piercing closed Shadow DOM using standard runtime DOM selectors" are technically invalid.
 
-### 4.4 Decoupled OS Accessibility Tree Pathfinding (`q3-shadow-dom/src/accessibilityHelper.js`)
+### 4.4 Decoupled OS Accessibility Tree Pathfinding (`q3-shadow-dom/tests/shadow-dom.spec.js`)
 
 Because closed Shadow DOM encapsulation isolates the DOM tree but **does not isolate the operating system accessibility tree**, modern quality engineering relies on accessibility semantics:
-- Playwright's `page.getByRole('button', { name: 'Authorize Ledger Funds' })` interacts directly with the browser's computed Accessibility Tree (Chromium AXTree).
-- The test demonstrates locating and clicking the authorization button inside the closed boundary, successfully mutating ledger state without DOM piercing.
+- **Platform Limitation Verified**: The test suite explicitly demonstrates that standard in-page Playwright locators (`page.getByRole('button', { name: 'Authorize Ledger Funds' })`) evaluate via in-page JavaScript DOM traversal where `element.shadowRoot` is `null`. Consequently, `await standardLocator.isVisible()` strictly evaluates to **`false`**.
+- **Blink / CDP Accessibility Engine Pathfinding**: The browser engine (Chromium Blink) constructs the OS accessibility tree out-of-band for assistive technologies across ALL shadow roots regardless of closed encapsulation.
+- Using Chrome DevTools Protocol (`Accessibility.getFullAXTree` and `DOM.getBoxModel`), the framework resolves the button's `backendDOMNodeId`, computes its layout quad click coordinates, and dispatches native mouse coordinates (`page.mouse.click(clickX, clickY)`).
+- This successfully authorizes the ledger (`window.__LEDGER_AUTHORIZED === true`) without violating or pretending to "pierce" JavaScript DOM boundaries.
 
 ### 4.5 Production AI Navigation System Prompt (`q3-shadow-dom/src/systemPromptCoT.md`)
 
@@ -247,24 +249,24 @@ Contains formally articulated answers to all mandatory disclosure prompts:
 - Question 6: Defensible professional justification for prioritizing this opportunity.
 
 ### 5.2 17 Analytical Engineering Scenarios (`section-b/answers.md`)
-Questions Q4 through Q20 address real-world systems, performance, security, and quality engineering scenarios. Each answer is structured under an internal 6-point reasoning model (`Failure Mechanism`, `Root Cause`, `Why Naive Testing Misses It`, `Deterministic Solution`, `Telemetry/Assertion/Control`, `Trade-off`) and strictly bounded to **$\le 150$ words each**:
-- **Q4 (Async Event Loop Blocking)**: CPU-bound JSON parsing starving I/O polling; resolved by worker threads or chunked streams.
-- **Q5 (Heap Out-Of-Memory)**: Unbounded WebSocket connection state caching; resolved by weak references and memory threshold governors.
-- **Q6 (AST-Driven Test Selection)**: Avoiding whole-suite execution on PRs; resolved by Babel/TypeScript AST dependency graph diffing.
-- **Q7 (Database Deadlocks)**: Divergent index acquisition ordering; resolved by deterministic sorting of record IDs before batch updates.
-- **Q8 (HikariCP Starvation)**: Leaked unclosed connections; resolved by `leakDetectionThreshold` and automated connection reaping.
-- **Q9 (MCP Sandbox Isolation)**: Arbitrary code execution by autonomous agents; resolved by Linux namespaces and seccomp syscall filters.
-- **Q10 (Distributed Tracing Gaps)**: Context loss across asynchronous queues; resolved by OpenTelemetry W3C tracecontext header injection.
-- **Q11 (Kafka Head-of-Line Blocking)**: Poison pill messages stalling consumer partitions; resolved by non-blocking dead-letter retry queues.
-- **Q12 (Cache Stampede / Thundering Herd)**: Simultaneous cache miss on expired keys; resolved by Mutex locking and probabilistic early recomputation (XFetch).
-- **Q13 (Dynamic Token Expiry Race)**: JWT expiration mid-flight; resolved by proactive refresh token buffer windows.
-- **Q14 (Flaky Visual Regressions)**: Font rendering anti-aliasing differences across OSes; resolved by containerized Linux Chromium runners.
-- **Q15 (Eventual Consistency Glitches)**: Reading from replica before replication lag settles; resolved by read-after-write primary pinning.
-- **Q16 (Zero-Downtime Migration)**: Schema alterations locking tables; resolved by expand-and-contract multi-phase dual-writing.
-- **Q17 (HIPAA Data Pipeline Architecture)**: Resource allocation matrix (Unit 30%, AppSec 25%, API 20%, Load 15%, Visual 10%) with synthetic PHI masking.
-- **Q18 (OpenAPI Boundary Exploitation)**: Security fuzzing against boundary values (`1e+7`, negative amounts, recursive JSON depth $>5$).
-- **Q19 (Automated Release Sign-Off Gates)**: Formal gate rules engine ingesting coverage, Trivy CVEs, and Jira blockers with automated rollback triggers.
-- **Q20 (Closed-Loop Production Stress Testing)**: Dynamic KEDA stress runners scaling from production OpenTelemetry and APM traffic patterns.
+Questions Q4 through Q20 address real-world systems, performance, security, and quality engineering scenarios directly from the assessment specification. Each answer is structured under an internal 6-point reasoning model (`Failure Mechanism`, `Root Cause`, `Why Naive Testing Misses It`, `Deterministic Solution`, `Telemetry/Assertion/Control`, `Trade-off`) and strictly bounded to **$\le 150$ words each**:
+- **Q4 (Architectural Critique: Cascading Drift in Multi-Agent Pipelines)**: Circular feedback loops between Code Generator and Auto-Fixer creating false certainty via dependency mirroring; resolved by independent test oracle verification and generation cycle circuit-breakers.
+- **Q5 (Log Analysis: GC Leaks & Microtask Loop Starvation)**: Event loop starvation from microtask queue overload coupled with socket buffer saturation causing heap Out-Of-Memory crashes; resolved by stream backpressure and queue length limits.
+- **Q6 (AI Code Safety Review & Multi-Tenant Query Injection)**: Raw string interpolation (Python f-strings) in multi-tenant SQL queries allowing tenant isolation bypass; resolved by parameterized queries and a Few-Shot defensive prompt.
+- **Q7 (Flaky Tests & Clock-Drift in Ephemeral Cloud Workers)**: Unstable 15-second `setTimeout` and local timestamp comparisons failing under cloud hypervisor CPU throttling; resolved by event-driven polling and server-anchored monotonic clocks.
+- **Q8 (Systems Concurrency & Connection Pool Starvation)**: HikariCP connection pool exhaustion under 200 concurrent runners; diagnostic methodology isolating slow database row locks vs connection leaks via JVM thread dumps and pool MBeans.
+- **Q9 (Operational Ambiguity: Headless CSS Layout Tree Collapses)**: Headless Chromium passing DOM element presence while CSS-in-JS layout crashes render a blank screen; resolved by visual regression snapshots and `getComputedStyle` dimension assertions.
+- **Q10 (Next-Gen Agentic Loops: Multi-Branch Cascading Loops)**: Autonomous engineering agent generating 85 conflicting hotfix branches; resolved by ephemeral sandboxed write privileges, branch creation quotas, and mandatory human sign-off gates.
+- **Q11 (AST-Driven Test Selection & Dependency Mapping)**: Optimizing 150 daily PR runs by parsing diffs into ASTs (tree-sitter/Babel), traversing dependency call graphs, and running only affected test subsets.
+- **Q12 (Self-Healing Testing: Graph Structural Neighbor Analysis)**: Fuzzy DOM locator healing mistakenly clicking destructive `#purge-all-data` when `#confirm-balance-wipe` is absent; resolved by hierarchical graph-distance bounding and semantic action classification.
+- **Q13 (MCP Sandboxing: Zero-Trust Schema Configurations)**: Restricting an over-privileged MCP terminal tool to a typed JSON schema with directory path regexes, line count bounds, and direct binary execution (`execFile`).
+- **Q14 (Systems Scalability: Asynchronous Log Ingestion Topographies)**: Handling 35,000 verbose failure bundles in 30s during global branch mergers via Kafka distributed buffers, decoupled Celery worker pools, and MinIO object storage.
+- **Q15 (Distributed Tracing & Ledger Cascade Failures)**: OpenTelemetry span analysis identifying the root-cause database lock timeout on `LedgerDB` updating `user_accounts id=92` cascading to Payment Gateway 500 errors.
+- **Q16 (Cognitive Prompt Critiques: Halting Context Contraction)**: Overcoming conversational context window degradation in iterative regex prompting by structuring a single-turn, Few-Shot system prompt.
+- **Q17 (Quality Engineering Blueprint: Critical Healthcare Telemetry)**: Test tier allocation (Unit 30%, AppSec 25%, API Contract 20%, Load 15%, Visual 10%) with automated synthetic PHI masking for continuous wearable ingestion.
+- **Q18 (OpenAPI Boundary Exploitation & Semantic Attack Topographies)**: Autonomous security fuzzing targeting boundaries (`0.00`, `50000.01`, `1e+7`), regex bypasses, and recursive JSON payload nesting depth $>5$.
+- **Q19 (Automated Quality Release Sign-Off Gates)**: Architecture for an automated Go/No-Go release gate integrating statement/branch coverage, flaky test thresholds, Trivy container CVEs, and Jira blockers with automated canary rollbacks.
+- **Q20 (Closed-Loop Observability: Production-Driven Stress Testing)**: Correlating production OpenTelemetry spans and APM traffic spikes to automatically synthesize realistic staging load profiles and dynamically scale KEDA stress runners.
 
 ### 5.3 Behavioral Alignment Decisions (Situations A–D)
 - **Situation A (Undocumented Legacy Crash)**: **Choice ii** (Defensive error handling wrapper with telemetry; avoids risky pre-release structural rewrite).
@@ -278,8 +280,8 @@ Questions Q4 through Q20 address real-world systems, performance, security, and 
 - **Technical Coverage**: Threat modeling (Indirect Prompt Injection, hallucinatory loops), zero-trust MCP architecture, typed JSON schemas (`additionalProperties: false`), Linux kernel isolation (`CLONE_NEWNS`, `CLONE_NEWNET`, `seccomp-bpf`, Landlock LSM, OverlayFS), direct binary execution via `execFile` (bypassing `/bin/sh`), architectural trade-offs, and stateful behavioral governors.
 
 ### 5.5 Q22 Portfolio Compilation & Q23 Video CV Script
-- **Q22 Portfolio ([`section-b/portfolio.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/portfolio.md))**: Structured template with GitHub project links and social media engagement checklists. Placeholders explicitly labeled `[REQUIRES CANDIDATE INPUT]`.
-- **Q23 Video CV Script ([`section-b/video_cv_script.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/video_cv_script.md))**: 4-part script timed for 2m 30s (~432 words). Covers AI-Native engineering philosophy, Frugal QA Lab canvas/race condition challenge, responsible GenAI sandboxing, and first-principles debugging without GenAI.
+- **Q22 Portfolio ([`section-b/portfolio.md`](./section-b/portfolio.md))**: Structured template with GitHub project links and social media engagement checklists. Placeholders explicitly labeled `[REQUIRES CANDIDATE INPUT]`.
+- **Q23 Video CV Script ([`section-b/video_cv_script.md`](./section-b/video_cv_script.md))**: 4-part script timed for 2m 30s (~432 words). Covers AI-Native engineering philosophy, Frugal QA Lab canvas/race condition challenge, responsible GenAI sandboxing, and first-principles debugging without GenAI.
 
 ---
 
@@ -292,7 +294,7 @@ node --version    # Requires Node.js v20.x or v24.x LTS (tested on v24.11.0)
 npm --version     # Requires npm v10.x or v11.x (tested on 11.6.1)
 
 # Navigate to project root
-cd /Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab
+cd frugal-qa-lab
 
 # Install dependencies
 npm install

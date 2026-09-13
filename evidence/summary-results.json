@@ -1,12 +1,12 @@
 {
   "config": {
     "argv": [
-      "/Users/yashshviyadav/.nvm/versions/node/v24.11.0/bin/node",
-      "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/node_modules/.bin/playwright",
+      "~/.nvm/versions/node/v24.11.0/bin/node",
+      "./node_modules/.bin/playwright",
       "test"
     ],
-    "configFile": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/playwright.config.js",
-    "rootDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab",
+    "configFile": "./playwright.config.js",
+    "rootDir": ".",
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
@@ -22,7 +22,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results",
+        "outputDir": "./test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -30,7 +30,7 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab",
+        "testDir": ".",
         "testIgnore": [],
         "testMatch": [
           "/.*\\.spec\\.js/"
@@ -93,7 +93,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9058,
+                      "duration": 8968,
                       "errors": [],
                       "stdout": [
                         {
@@ -109,7 +109,7 @@
                           "text": "[SCREENSHOT_CAPTURED] Captured initial gray loading state {\"path\":\"01-canvas-loading-gray.png\"}\n"
                         },
                         {
-                          "text": "[PIXEL_TRANSITION_DETECTED] Active element color layout identified via requestAnimationFrame {\"elapsedSinceStartMs\":8751,\"polledFrames\":526,\"initialGrayConfirmed\":true,\"sampledColor\":{\"r\":0,\"g\":230,\"b\":118,\"a\":255},\"targetCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}}\n"
+                          "text": "[PIXEL_TRANSITION_DETECTED] Active element color layout identified via requestAnimationFrame {\"elapsedSinceStartMs\":8767.5,\"polledFrames\":526,\"initialGrayConfirmed\":true,\"sampledColor\":{\"r\":0,\"g\":230,\"b\":118,\"a\":255},\"targetCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Canvas rendered and confirmed initial gray loading threshold\n"
@@ -123,18 +123,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:41:58.771Z",
+                      "startTime": "2026-09-13T17:55:58.642Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/test-finished-1.png"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/video.webm"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/video.webm"
                         }
                       ]
                     }
@@ -163,17 +163,17 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 849,
+                      "duration": 859,
                       "errors": [],
                       "stdout": [
                         {
                           "text": "[TEST_START] Initiating 30ms-100ms chained action race execution \n"
                         },
                         {
-                          "text": "[DETECTION_FIRED] Pixel transition detected. Commencing ultra-rapid action chain. {\"transitionTimestamp\":622.8000000007451,\"nodeDetectionTimestamp\":10176.6795}\n"
+                          "text": "[DETECTION_FIRED] Pixel transition detected. Commencing ultra-rapid action chain. {\"transitionTimestamp\":623.8999999985099,\"nodeDetectionTimestamp\":9999.237791}\n"
                         },
                         {
-                          "text": "[ACTION_CHAIN_COMPLETED] Chained action sequence executed {\"detectionTimestamp\":10176.6795,\"actionStart\":10179.873167,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10213.538042,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10218.040583},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10258.390208,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10260.89575}],\"actionEnd\":10260.89575,\"totalElapsedSinceDetectionMs\":84.21624999999949,\"actionExecutionDurationMs\":81.02258299999994,\"isWithinRaceWindow\":true}\n"
+                          "text": "[ACTION_CHAIN_COMPLETED] Chained action sequence executed {\"detectionTimestamp\":9999.237791,\"actionStart\":10003.592958,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10037.432541,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10039.660666},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10080.66575,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10082.710166}],\"actionEnd\":10082.710166,\"totalElapsedSinceDetectionMs\":83.4723750000012,\"actionExecutionDurationMs\":79.11720800000148,\"isWithinRaceWindow\":true}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Action execution duration completed within race constraints (<=100ms)\n"
@@ -184,18 +184,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:08.018Z",
+                      "startTime": "2026-09-13T17:56:07.698Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/test-finished-1.png"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/video.webm"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/video.webm"
                         }
                       ]
                     }
@@ -224,7 +224,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 810,
+                      "duration": 805,
                       "errors": [],
                       "stdout": [
                         {
@@ -234,7 +234,7 @@
                           "text": "[INITIAL_COORDINATES_DETECTED] Target detected at initial position {\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}\n"
                         },
                         {
-                          "text": "[CIRCUIT_BREAKER_EXECUTED] Circuit breaker completed guarded action {\"circuitBreakerState\":\"RECOVERED\",\"trippedCount\":1,\"resolvedCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600},\"actionResult\":{\"detectionTimestamp\":11028.398667,\"actionStart\":11029.557083,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":11059.670125,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":11062.161042},{\"step\":\"DRAG_15PX_X\",\"timestamp\":11104.492083,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":11107.208625}],\"actionEnd\":11107.208625,\"totalElapsedSinceDetectionMs\":78.80995799999982,\"actionExecutionDurationMs\":77.65154199999961,\"isWithinRaceWindow\":true}}\n"
+                          "text": "[CIRCUIT_BREAKER_EXECUTED] Circuit breaker completed guarded action {\"circuitBreakerState\":\"RECOVERED\",\"trippedCount\":1,\"resolvedCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600},\"actionResult\":{\"detectionTimestamp\":10854.398583,\"actionStart\":10856.318375,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10884.224958,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10888.616291},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10929.856541,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10931.842791}],\"actionEnd\":10931.842791,\"totalElapsedSinceDetectionMs\":77.44420799999898,\"actionExecutionDurationMs\":75.52441599999838,\"isWithinRaceWindow\":true}}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Circuit breaker handled dynamic coordinate drift without blind failure\n"
@@ -245,18 +245,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:08.872Z",
+                      "startTime": "2026-09-13T17:56:08.561Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/test-finished-1.png"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/video.webm"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/video.webm"
                         }
                       ]
                     }
@@ -285,7 +285,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 994,
+                      "duration": 958,
                       "errors": [],
                       "stdout": [
                         {
@@ -306,18 +306,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:09.686Z",
+                      "startTime": "2026-09-13T17:56:09.370Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/test-finished-1.png"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/video.webm"
+                          "path": "./test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/video.webm"
                         }
                       ]
                     }
@@ -363,7 +363,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 22,
+                      "duration": 21,
                       "errors": [],
                       "stdout": [
                         {
@@ -373,7 +373,7 @@
                           "text": "[TEST_START] Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification \n"
                         },
                         {
-                          "text": "[TRANSACTION_CREATED] Received transaction wrapper from server {\"status\":201,\"headerTxnId\":\"txn_6e9452cf446ca2dc13dd4d3e\",\"headerChallenge\":\"ch_002e584dc91fb3a7ff740f9683c960db\"}\n"
+                          "text": "[TRANSACTION_CREATED] Received transaction wrapper from server {\"status\":201,\"headerTxnId\":\"txn_61ecb9eab7f639fe659695c1\",\"headerChallenge\":\"ch_261e99f1e046660be746af2761ed7e1b\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Extracted valid transaction ID from X-Transaction-Id response header\n"
@@ -382,7 +382,7 @@
                           "text": "[ASSERTION:PASS] Extracted valid server timestamp from response header/body\n"
                         },
                         {
-                          "text": "[PUT_DISPATCHED] Dispatched signed PUT update request {\"status\":200,\"elapsedMs\":3.3520000000007713,\"sentMac\":\"30aeb9565f90e67ea2fd4bb9d3050d0b38acd789ba76b19a0b3eed5aa504455c01b35e65ae9d13630bf4959738aa9fe642383e2ef7d7daeb0dafb7ae6eae33b1\"}\n"
+                          "text": "[PUT_DISPATCHED] Dispatched signed PUT update request {\"status\":200,\"elapsedMs\":3.278667000000496,\"sentMac\":\"c2e32682c7c572d9624fe85ea583b240d7aad8dc7587d395ebdc7f10a4ae2a4154872cd51f0e4dde15b40aa7396ff3420763a2d4a0c64caf80d85e5e1a00bf7b\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Server verified dynamic HMAC-SHA512 header and settled transaction\n"
@@ -390,7 +390,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:10.698Z",
+                      "startTime": "2026-09-13T17:56:10.340Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -419,14 +419,14 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3,
+                      "duration": 4,
                       "errors": [],
                       "stdout": [
                         {
                           "text": "[TEST_START] Executing immediate Replay Attack within <150ms of PUT completion \n"
                         },
                         {
-                          "text": "[REPLAY_ATTACK_EXECUTED] Dispatched initial request followed by immediate duplicate payload {\"initialStatus\":200,\"replayStatus\":409,\"burstDeltaMs\":0.7396249999983411,\"completedWithin150Ms\":true,\"replayedSignature\":\"33bd2c39de41a5aa460d2d18b31e1767524f328d05b56b4d8664cd34243a3f51f87740b12bffe2ea5fd767ce52b2ea5c04c8a666984ed41f0ec1244e1670335b\"}\n"
+                          "text": "[REPLAY_ATTACK_EXECUTED] Dispatched initial request followed by immediate duplicate payload {\"initialStatus\":200,\"replayStatus\":409,\"burstDeltaMs\":0.652750000001106,\"completedWithin150Ms\":true,\"replayedSignature\":\"e5bd0fb72a62d8cf5d25e734526de4dd1234dff55d308fe3f6dabb2996a065c74b84a75c8016e07432a9e914e710972561d7d036df0bad6a137a44d5957ec5d8\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Initial financial transaction settled successfully\n"
@@ -440,7 +440,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:10.727Z",
+                      "startTime": "2026-09-13T17:56:10.368Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -490,7 +490,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:10.734Z",
+                      "startTime": "2026-09-13T17:56:10.376Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -540,11 +540,11 @@
                           "text": "\n🚨 [HIGH_RISK_SECURITY_ALERT] HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED: Server permitted duplicate transaction replay!\n"
                         },
                         {
-                          "text": "Details: {\n  \"transactionId\": \"txn_aeb6c4aaa6d2382964cc14a9\",\n  \"replayedMac\": \"133c3bcc55e1b54b07ff3bb2c9ab443d1020576bb87a3ee1051100530b54565df5b4994f3ca2aff588d2e1d6ce503ddfe5859015cd4435ec1bb4c24272f30a3d\",\n  \"duplicateResponseStatus\": 200,\n  \"duplicateResponseBody\": {\n    \"status\": \"SETTLED\",\n    \"transactionId\": \"txn_aeb6c4aaa6d2382964cc14a9\",\n    \"settledAt\": 1789321330746,\n    \"proofOfWorkMac\": \"133c3bcc55e1b54b07ff3bb2c9ab443d1020576bb87a3ee1051100530b54565df5b4994f3ca2aff588d2e1d6ce503ddfe5859015cd4435ec1bb4c24272f30a3d\"\n  }\n}\n\n"
+                          "text": "Details: {\n  \"transactionId\": \"txn_67255ef712af7c920f99c430\",\n  \"replayedMac\": \"66e12660d497d5b156f5764cc90dac4998ba8ddba4df5863747930783d2433524d7c39ff4455eca57c0da45ce034a6d43809de2ae63ea3590de23f63d11a16ed\",\n  \"duplicateResponseStatus\": 200,\n  \"duplicateResponseBody\": {\n    \"status\": \"SETTLED\",\n    \"transactionId\": \"txn_67255ef712af7c920f99c430\",\n    \"settledAt\": 1789322170388,\n    \"proofOfWorkMac\": \"66e12660d497d5b156f5764cc90dac4998ba8ddba4df5863747930783d2433524d7c39ff4455eca57c0da45ce034a6d43809de2ae63ea3590de23f63d11a16ed\"\n  }\n}\n\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:10.742Z",
+                      "startTime": "2026-09-13T17:56:10.384Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -590,7 +590,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 218,
+                      "duration": 204,
                       "errors": [],
                       "stdout": [
                         {
@@ -600,7 +600,7 @@
                           "text": "[TEST_START] Testing open shadow root piercing without static IDs, classes, or text matching \n"
                         },
                         {
-                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_q0xc6\"}\n"
+                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_8me3z\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Verified custom element uses dynamic regenerating class strings\n"
@@ -614,18 +614,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:10.760Z",
+                      "startTime": "2026-09-13T17:56:10.404Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-8a514-scated-Regenerating-Classes-chromium/test-finished-1.png"
+                          "path": "./test-results/q3-shadow-dom-tests-shadow-8a514-scated-Regenerating-Classes-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-8a514-scated-Regenerating-Classes-chromium/video.webm"
+                          "path": "./test-results/q3-shadow-dom-tests-shadow-8a514-scated-Regenerating-Classes-chromium/video.webm"
                         }
                       ]
                     }
@@ -669,18 +669,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:10.987Z",
+                      "startTime": "2026-09-13T17:56:10.614Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-85fdc-ndary-Testability-Solutions-chromium/test-finished-1.png"
+                          "path": "./test-results/q3-shadow-dom-tests-shadow-85fdc-ndary-Testability-Solutions-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-85fdc-ndary-Testability-Solutions-chromium/video.webm"
+                          "path": "./test-results/q3-shadow-dom-tests-shadow-85fdc-ndary-Testability-Solutions-chromium/video.webm"
                         }
                       ]
                     }
@@ -694,7 +694,7 @@
               "column": 3
             },
             {
-              "title": "Core Spec 3: OS Accessibility Tree Pathfinding (Decoupled from DOM encapsulation)",
+              "title": "Core Spec 3: OS Accessibility Tree Pathfinding & Closed Shadow DOM Boundary Verification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -709,20 +709,20 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 212,
+                      "duration": 187,
                       "errors": [],
                       "stdout": [
                         {
                           "text": "[TEST_START] Resolving target control via pure OS Accessibility Tree semantics \n"
                         },
                         {
-                          "text": "[AX_SNAPSHOT_CAPTURED] Extracted computed OS accessibility tree representation {\"ariaTreeSnippet\":\"- heading \\\"FRUGAL QA LAB // SHADOW BOUNDARY GATEWAY\\\" [level=1]\\n- text: \\\"Ledger Authorization Status: UNAUTHORIZED ENTERPRISE GATEWAY HOST // ROOT LAYE\"}\n"
+                          "text": "[ASSERTION:PASS] Verified platform limitation: Standard in-page DOM getByRole cannot penetrate closed shadow roots\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Located control through computed accessibility tree without DOM IDs or class selectors\n"
+                          "text": "[ASSERTION:PASS] Blink Accessibility Engine successfully extracted button node across closed shadow root\n"
                         },
                         {
-                          "text": "[ASSERTION:PASS] Successfully committed financial ledger action via Accessibility Tree locator\n"
+                          "text": "[ASSERTION:PASS] Successfully committed financial ledger action via native browser Accessibility Tree coordinates without DOM piercing\n"
                         },
                         {
                           "text": "[Test Teardown] Q3 Server stopped.\n"
@@ -730,18 +730,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:42:11.085Z",
+                      "startTime": "2026-09-13T17:56:10.712Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-42378-led-from-DOM-encapsulation--chromium/test-finished-1.png"
+                          "path": "./test-results/q3-shadow-dom-tests-shadow-07b5d-w-DOM-Boundary-Verification-chromium/test-finished-1.png"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q3-shadow-dom-tests-shadow-42378-led-from-DOM-encapsulation--chromium/video.webm"
+                          "path": "./test-results/q3-shadow-dom-tests-shadow-07b5d-w-DOM-Boundary-Verification-chromium/video.webm"
                         }
                       ]
                     }
@@ -749,7 +749,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "414d4760a35ae39039c0-4418e4ca2f41edc90c50",
+              "id": "414d4760a35ae39039c0-b20a45d446b7a0e1104e",
               "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
               "line": 103,
               "column": 3
@@ -761,8 +761,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-13T17:41:58.430Z",
-    "duration": 12906.732,
+    "startTime": "2026-09-13T17:55:58.293Z",
+    "duration": 12642.333999999999,
     "expected": 11,
     "skipped": 0,
     "unexpected": 0,

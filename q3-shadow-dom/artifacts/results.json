@@ -1,78 +1,88 @@
 {
   "module": "q3-shadow-dom",
-  "executedAt": "2026-09-13T17:42:11.302Z",
-  "durationMs": 539,
+  "executedAt": "2026-09-13T17:56:10.904Z",
+  "durationMs": 499,
   "overallStatus": "PASSED",
-  "totalAssertions": 6,
-  "passedAssertions": 6,
+  "totalAssertions": 7,
+  "passedAssertions": 7,
   "failedAssertions": 0,
   "assertions": [
     {
       "description": "Verified custom element uses dynamic regenerating class strings",
       "passed": true,
       "details": {
-        "dynamicClass": "obfuscated_v4_q0xc6"
+        "dynamicClass": "obfuscated_v4_8me3z"
       },
-      "timestamp": "2026-09-13T17:42:10.820Z"
+      "timestamp": "2026-09-13T17:56:10.455Z"
     },
     {
       "description": "Resilient tree walker located target element across nested shadow roots without DOM selectors",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:10.829Z"
+      "timestamp": "2026-09-13T17:56:10.464Z"
     },
     {
       "description": "Successfully triggered action on pierced target and mutated ledger state",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:10.902Z"
+      "timestamp": "2026-09-13T17:56:10.530Z"
     },
     {
       "description": "Confirmed browser enforces W3C closed boundary: element.shadowRoot evaluates strictly to null",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:11.037Z"
+      "timestamp": "2026-09-13T17:56:10.670Z"
     },
     {
-      "description": "Located control through computed accessibility tree without DOM IDs or class selectors",
+      "description": "Verified platform limitation: Standard in-page DOM getByRole cannot penetrate closed shadow roots",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:11.155Z"
+      "timestamp": "2026-09-13T17:56:10.767Z"
     },
     {
-      "description": "Successfully committed financial ledger action via Accessibility Tree locator",
+      "description": "Blink Accessibility Engine successfully extracted button node across closed shadow root",
+      "passed": true,
+      "details": {
+        "role": "button",
+        "name": "Authorize Ledger Funds",
+        "backendDOMNodeId": 23
+      },
+      "timestamp": "2026-09-13T17:56:10.770Z"
+    },
+    {
+      "description": "Successfully committed financial ledger action via native browser Accessibility Tree coordinates without DOM piercing",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:11.219Z"
+      "timestamp": "2026-09-13T17:56:10.807Z"
     }
   ],
   "events": [
     {
-      "timestamp": "2026-09-13T17:42:10.799Z",
-      "relativeMs": 36,
+      "timestamp": "2026-09-13T17:56:10.436Z",
+      "relativeMs": 31,
       "category": "TEST_START",
       "message": "Testing open shadow root piercing without static IDs, classes, or text matching",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:42:10.820Z",
-      "relativeMs": 57,
+      "timestamp": "2026-09-13T17:56:10.455Z",
+      "relativeMs": 50,
       "category": "OBFUSCATED_CLASS_VERIFIED",
       "message": "Detected regenerating dynamic class string on shadow host",
       "metadata": {
-        "dynamicClass": "obfuscated_v4_q0xc6"
+        "dynamicClass": "obfuscated_v4_8me3z"
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:11.018Z",
-      "relativeMs": 255,
+      "timestamp": "2026-09-13T17:56:10.651Z",
+      "relativeMs": 246,
       "category": "TEST_START",
       "message": "Validating W3C Closed Shadow DOM security boundary and harness solutions",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:42:11.037Z",
-      "relativeMs": 274,
+      "timestamp": "2026-09-13T17:56:10.670Z",
+      "relativeMs": 265,
       "category": "CLOSED_BOUNDARY_PROVEN",
       "message": "Standard runtime JS cannot access closed root without test harness or CDP",
       "metadata": {
@@ -81,20 +91,11 @@
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:11.123Z",
-      "relativeMs": 360,
+      "timestamp": "2026-09-13T17:56:10.740Z",
+      "relativeMs": 335,
       "category": "TEST_START",
       "message": "Resolving target control via pure OS Accessibility Tree semantics",
       "metadata": {}
-    },
-    {
-      "timestamp": "2026-09-13T17:42:11.152Z",
-      "relativeMs": 389,
-      "category": "AX_SNAPSHOT_CAPTURED",
-      "message": "Extracted computed OS accessibility tree representation",
-      "metadata": {
-        "ariaTreeSnippet": "- heading \"FRUGAL QA LAB // SHADOW BOUNDARY GATEWAY\" [level=1]\n- text: \"Ledger Authorization Status: UNAUTHORIZED ENTERPRISE GATEWAY HOST // ROOT LAYE"
-      }
     }
   ]
 }

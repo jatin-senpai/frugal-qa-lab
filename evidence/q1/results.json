@@ -1,21 +1,21 @@
 {
   "module": "q1-canvas-chaos",
-  "executedAt": "2026-09-13T17:42:10.686Z",
-  "durationMs": 11904,
+  "executedAt": "2026-09-13T17:56:10.333Z",
+  "durationMs": 11680,
   "overallStatus": "PASSED",
   "totalAssertions": 10,
   "passedAssertions": 10,
   "failedAssertions": 0,
   "metrics": {
-    "totalElapsedSinceDetectionMs": 84.21624999999949,
-    "actionExecutionDurationMs": 81.02258299999994
+    "totalElapsedSinceDetectionMs": 83.4723750000012,
+    "actionExecutionDurationMs": 79.11720800000148
   },
   "assertions": [
     {
       "description": "Canvas rendered and confirmed initial gray loading threshold",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:07.917Z"
+      "timestamp": "2026-09-13T17:56:07.599Z"
     },
     {
       "description": "Canvas color transitioned to active element green without DOM locators",
@@ -26,7 +26,7 @@
         "b": 118,
         "a": 255
       },
-      "timestamp": "2026-09-13T17:42:07.918Z"
+      "timestamp": "2026-09-13T17:56:07.599Z"
     },
     {
       "description": "WebSocket frames intercepted and injected with Fibonacci delay sequence",
@@ -35,22 +35,22 @@
         "interceptedFrames": 89,
         "firstFrameDelayMs": 1000
       },
-      "timestamp": "2026-09-13T17:42:07.924Z"
+      "timestamp": "2026-09-13T17:56:07.609Z"
     },
     {
       "description": "Action execution duration completed within race constraints (<=100ms)",
       "passed": true,
       "details": {
-        "actionDurationMs": 81.02258299999994,
-        "totalElapsedSinceDetectionMs": 84.21624999999949
+        "actionDurationMs": 79.11720800000148,
+        "totalElapsedSinceDetectionMs": 83.4723750000012
       },
-      "timestamp": "2026-09-13T17:42:08.770Z"
+      "timestamp": "2026-09-13T17:56:08.454Z"
     },
     {
       "description": "Canvas application registered order execution via drag-and-click",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:08.772Z"
+      "timestamp": "2026-09-13T17:56:08.456Z"
     },
     {
       "description": "Circuit breaker handled dynamic coordinate drift without blind failure",
@@ -70,13 +70,13 @@
           "pixelCount": 600
         }
       },
-      "timestamp": "2026-09-13T17:42:09.617Z"
+      "timestamp": "2026-09-13T17:56:09.303Z"
     },
     {
       "description": "Drifted target successfully executed via revalidated coordinates",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:09.620Z"
+      "timestamp": "2026-09-13T17:56:09.305Z"
     },
     {
       "description": "Frontend invoked structured Exception Boundary upon mathematical corruption",
@@ -84,7 +84,7 @@
       "details": {
         "errorCode": "CODE: ERR_STATE_CORRUPTION_MATHEMATICAL_BOUNDARY"
       },
-      "timestamp": "2026-09-13T17:42:10.542Z"
+      "timestamp": "2026-09-13T17:56:10.218Z"
     },
     {
       "description": "Frontend halted client-side state corruption and logged structured payload",
@@ -92,33 +92,33 @@
       "details": {
         "errorDetails": "Exception: Mathematical state boundary breach: Scientific notation disallowed [1e+7]\n\nRaw Boundary Payload:\n{\n  \"type\": \"TICK\",\n  \"balance\": \"1e+7\",\n  \"contractSize\": 12.3456789,\n  \"corrupt\": true\n}"
       },
-      "timestamp": "2026-09-13T17:42:10.544Z"
+      "timestamp": "2026-09-13T17:56:10.219Z"
     },
     {
       "description": "Trading engine state halted in ERROR state, preventing silent corruption",
       "passed": true,
       "details": {},
-      "timestamp": "2026-09-13T17:42:10.546Z"
+      "timestamp": "2026-09-13T17:56:10.221Z"
     }
   ],
   "events": [
     {
-      "timestamp": "2026-09-13T17:41:59.055Z",
-      "relativeMs": 273,
+      "timestamp": "2026-09-13T17:55:58.764Z",
+      "relativeMs": 111,
       "category": "TEST_START",
       "message": "Initiating Fibonacci WebSocket jitter and pixel detector validation",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:41:59.057Z",
-      "relativeMs": 275,
+      "timestamp": "2026-09-13T17:55:58.766Z",
+      "relativeMs": 113,
       "category": "CHAOS_INJECTED",
       "message": "Fibonacci delay interceptor hooked into browser WebSocket layer (1s, 1s, 2s, 3s, 5s, 8s)",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:41:59.158Z",
-      "relativeMs": 376,
+      "timestamp": "2026-09-13T17:55:58.823Z",
+      "relativeMs": 170,
       "category": "SCREENSHOT_CAPTURED",
       "message": "Captured initial gray loading state",
       "metadata": {
@@ -126,12 +126,12 @@
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:07.915Z",
-      "relativeMs": 9133,
+      "timestamp": "2026-09-13T17:56:07.597Z",
+      "relativeMs": 8944,
       "category": "PIXEL_TRANSITION_DETECTED",
       "message": "Active element color layout identified via requestAnimationFrame",
       "metadata": {
-        "elapsedSinceStartMs": 8751,
+        "elapsedSinceStartMs": 8767.5,
         "polledFrames": 526,
         "initialGrayConfirmed": true,
         "sampledColor": {
@@ -154,68 +154,68 @@
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:08.059Z",
-      "relativeMs": 9277,
+      "timestamp": "2026-09-13T17:56:07.742Z",
+      "relativeMs": 9090,
       "category": "TEST_START",
       "message": "Initiating 30ms-100ms chained action race execution",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:42:08.686Z",
-      "relativeMs": 9904,
+      "timestamp": "2026-09-13T17:56:08.370Z",
+      "relativeMs": 9717,
       "category": "DETECTION_FIRED",
       "message": "Pixel transition detected. Commencing ultra-rapid action chain.",
       "metadata": {
-        "transitionTimestamp": 622.8000000007451,
-        "nodeDetectionTimestamp": 10176.6795
+        "transitionTimestamp": 623.8999999985099,
+        "nodeDetectionTimestamp": 9999.237791
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:08.770Z",
-      "relativeMs": 9988,
+      "timestamp": "2026-09-13T17:56:08.453Z",
+      "relativeMs": 9800,
       "category": "ACTION_CHAIN_COMPLETED",
       "message": "Chained action sequence executed",
       "metadata": {
-        "detectionTimestamp": 10176.6795,
-        "actionStart": 10179.873167,
+        "detectionTimestamp": 9999.237791,
+        "actionStart": 10003.592958,
         "steps": [
           {
             "step": "HOVER",
-            "timestamp": 10213.538042,
+            "timestamp": 10037.432541,
             "x": 629,
             "y": 374.5
           },
           {
             "step": "MOUSE_DOWN",
-            "timestamp": 10218.040583
+            "timestamp": 10039.660666
           },
           {
             "step": "DRAG_15PX_X",
-            "timestamp": 10258.390208,
+            "timestamp": 10080.66575,
             "x": 644,
             "y": 374.5
           },
           {
             "step": "MOUSE_UP_CLICK",
-            "timestamp": 10260.89575
+            "timestamp": 10082.710166
           }
         ],
-        "actionEnd": 10260.89575,
-        "totalElapsedSinceDetectionMs": 84.21624999999949,
-        "actionExecutionDurationMs": 81.02258299999994,
+        "actionEnd": 10082.710166,
+        "totalElapsedSinceDetectionMs": 83.4723750000012,
+        "actionExecutionDurationMs": 79.11720800000148,
         "isWithinRaceWindow": true
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:08.904Z",
-      "relativeMs": 10122,
+      "timestamp": "2026-09-13T17:56:08.589Z",
+      "relativeMs": 9936,
       "category": "TEST_START",
       "message": "Validating Coordinate Drift Circuit-Breaker on dynamic layout shift",
       "metadata": {}
     },
     {
-      "timestamp": "2026-09-13T17:42:09.532Z",
-      "relativeMs": 10750,
+      "timestamp": "2026-09-13T17:56:09.217Z",
+      "relativeMs": 10564,
       "category": "INITIAL_COORDINATES_DETECTED",
       "message": "Target detected at initial position",
       "metadata": {
@@ -231,8 +231,8 @@
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:09.616Z",
-      "relativeMs": 10834,
+      "timestamp": "2026-09-13T17:56:09.302Z",
+      "relativeMs": 10649,
       "category": "CIRCUIT_BREAKER_EXECUTED",
       "message": "Circuit breaker completed guarded action",
       "metadata": {
@@ -250,40 +250,40 @@
           "pixelCount": 600
         },
         "actionResult": {
-          "detectionTimestamp": 11028.398667,
-          "actionStart": 11029.557083,
+          "detectionTimestamp": 10854.398583,
+          "actionStart": 10856.318375,
           "steps": [
             {
               "step": "HOVER",
-              "timestamp": 11059.670125,
+              "timestamp": 10884.224958,
               "x": 629,
               "y": 374.5
             },
             {
               "step": "MOUSE_DOWN",
-              "timestamp": 11062.161042
+              "timestamp": 10888.616291
             },
             {
               "step": "DRAG_15PX_X",
-              "timestamp": 11104.492083,
+              "timestamp": 10929.856541,
               "x": 644,
               "y": 374.5
             },
             {
               "step": "MOUSE_UP_CLICK",
-              "timestamp": 11107.208625
+              "timestamp": 10931.842791
             }
           ],
-          "actionEnd": 11107.208625,
-          "totalElapsedSinceDetectionMs": 78.80995799999982,
-          "actionExecutionDurationMs": 77.65154199999961,
+          "actionEnd": 10931.842791,
+          "totalElapsedSinceDetectionMs": 77.44420799999898,
+          "actionExecutionDurationMs": 75.52441599999838,
           "isWithinRaceWindow": true
         }
       }
     },
     {
-      "timestamp": "2026-09-13T17:42:09.716Z",
-      "relativeMs": 10934,
+      "timestamp": "2026-09-13T17:56:09.399Z",
+      "relativeMs": 10746,
       "category": "TEST_START",
       "message": "Testing corrupted mathematical state string injection and frontend exception boundary",
       "metadata": {}

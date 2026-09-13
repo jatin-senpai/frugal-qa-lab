@@ -35,7 +35,7 @@ Furthermore, components configured with `#shadow-root (closed)` present a strict
 - **Three Viable Engineering Approaches**:
   1. **Pre-Execution Test Harness Injection**: In test environments, monkey-patch `Element.prototype.attachShadow` via Playwright `addInitScript` to force open mode or record roots into an internal test registry.
   2. **Chrome DevTools Protocol (CDP)**: Utilizing `DOM.describeNode` / `DOM.resolveNode` with `pierce: true`, operating below the JS execution context at the browser engine level.
-  3. **Accessibility Tree (AXTree) Resolution**: Locating the element via accessibility primitives (`getByRole('button', { name: 'Authorize Ledger Funds' })`). The OS Accessibility Tree is completely decoupled from DOM encapsulation and flattens closed shadow roots.
+  3. **Out-of-Band Accessibility Tree (AXTree) Resolution via CDP**: Proving that in-page DOM locators (`getByRole`) evaluate to `isVisible() === false` inside closed shadow roots, while Chromium's native accessibility engine constructs the accessibility tree across all roots. Utilizing CDP (`Accessibility.getFullAXTree` + `DOM.getBoxModel`) resolves the node and clicks via native layout coordinates without DOM piercing.
 
 ### 2.3 Dense CoT System Prompt (`src/systemPromptCoT.md`)
 Trains an LLM to exclusively reason from the computed OS Accessibility Tree (`AXRole`, `AXName`, `AXState`, `AXLiveRegion`, structural parent-child relationships), strictly forbidding:

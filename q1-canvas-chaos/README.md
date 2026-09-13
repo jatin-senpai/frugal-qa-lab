@@ -47,7 +47,7 @@ This project implements a fully localized, deterministic testing harness for a d
 
 ### 2.2 Anti-AI Zero-DOM Pixel-State Detection (Spec 2)
 - **No Static Sleep or DOM Locators**: The test does NOT query DOM selectors or visibility polls.
-- **Embedded Pixel Scanner**: Runs a `requestAnimationFrame` loop evaluating `ctx.getImageData()` across the canvas buffer.
+- **Embedded Pixel Scanner**: Runs a `requestAnimationFrame`-driven pixel-state observation loop evaluating `ctx.getImageData()` across the canvas buffer.
 - **State Transition**:
   - Initial Gray Loading Threshold: $\text{RGB} \approx [120, 136, 150]$ ($\Delta < 30$).
   - Active Target Element: $\text{RGB}_{\text{green}} \rightarrow G > 180, R < 80$.

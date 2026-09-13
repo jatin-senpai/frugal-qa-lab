@@ -100,33 +100,46 @@ test.describe('Q3: Sealed Closed-Boundary Shadow DOM Pathfinding & Accessibility
     });
   });
 
-  test('Core Spec 3: OS Accessibility Tree Pathfinding (Decoupled from DOM encapsulation)', async ({ page }) => {
+  test('Core Spec 3: OS Accessibility Tree Pathfinding & Closed Shadow DOM Boundary Verification', async ({ page }) => {
     telemetry.log('TEST_START', 'Resolving target control via pure OS Accessibility Tree semantics');
 
-    // In test environment, activate harness hook to enable AXTree traversal
-    await injectShadowHarnessHook(page, { forceOpen: true });
+    // 1. Navigate to page with CLOSED shadow root (NO harness hook!)
     await page.goto(BASE_URL);
 
-    // Extract computed Accessibility Tree Snapshot via Playwright AX engine
-    const axSnapshot = await page.locator('body').ariaSnapshot();
-    telemetry.log('AX_SNAPSHOT_CAPTURED', 'Extracted computed OS accessibility tree representation', {
-      ariaTreeSnippet: axSnapshot.slice(0, 150)
+    // 2. Document the exact platform limitation:
+    // Standard Playwright getByRole relies on in-page DOM script evaluation, which CANNOT see past closed shadow roots
+    const standardLocator = page.getByRole('button', { name: 'Authorize Ledger Funds' });
+    const isVisibleInDom = await standardLocator.isVisible();
+    expect(isVisibleInDom).toBe(false);
+    telemetry.recordAssertion('Verified platform limitation: Standard in-page DOM getByRole cannot penetrate closed shadow roots', true);
+
+    // 3. True OS/Browser-level Accessibility Tree resolution via Chrome DevTools Protocol (CDP)
+    // The browser engine (Blink) builds the OS accessibility tree across ALL shadow roots regardless of closed encapsulation
+    const cdp = await page.context().newCDPSession(page);
+    await cdp.send('Accessibility.enable');
+    await cdp.send('DOM.enable');
+
+    const axTree = await cdp.send('Accessibility.getFullAXTree');
+    const axButtonNode = axTree.nodes.find(n => n.role?.value === 'button' && n.name?.value === 'Authorize Ledger Funds');
+    expect(axButtonNode).toBeDefined();
+    telemetry.recordAssertion('Blink Accessibility Engine successfully extracted button node across closed shadow root', true, {
+      role: axButtonNode.role?.value,
+      name: axButtonNode.name?.value,
+      backendDOMNodeId: axButtonNode.backendDOMNodeId
     });
 
-    // Resolve target control purely by accessible role and accessible name/description
-    // (Bypasses all DOM boundaries, classes, IDs, and closed shadow roots)
-    const targetButton = page.getByRole('button', { name: 'Authorize Ledger Funds' });
-    await expect(targetButton).toBeVisible();
+    // 4. Resolve layout quad and click via accessibility coordinates
+    const box = await cdp.send('DOM.getBoxModel', { backendNodeId: axButtonNode.backendDOMNodeId });
+    const content = box.model.content;
+    const clickX = (content[0] + content[2]) / 2;
+    const clickY = (content[1] + content[5]) / 2;
 
-    telemetry.recordAssertion('Located control through computed accessibility tree without DOM IDs or class selectors', true);
-
-    // Click via accessibility locator
-    await targetButton.click();
+    await page.mouse.click(clickX, clickY);
 
     // Verify execution
     const isAuthorized = await page.evaluate(() => window.__LEDGER_AUTHORIZED);
     expect(isAuthorized).toBe(true);
-    telemetry.recordAssertion('Successfully committed financial ledger action via Accessibility Tree locator', true);
+    telemetry.recordAssertion('Successfully committed financial ledger action via native browser Accessibility Tree coordinates without DOM piercing', true);
 
     await page.screenshot({ path: path.join(__dirname, '../../evidence/q3/02-accessibility-tree-authorized.png') });
   });

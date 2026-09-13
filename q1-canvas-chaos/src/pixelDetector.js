@@ -1,9 +1,9 @@
 // Frugal QA Lab — Canvas Pixel-State Transition Detector
 
 /**
- * Polls the Canvas rendering context via requestAnimationFrame to detect
- * the exact frame where pixel color transitions from gray loading state
- * to active element color layout.
+ * Observes the Canvas rendering context via requestAnimationFrame-driven pixel-state
+ * observation to detect the exact frame where pixel color transitions from gray
+ * loading state to active element color layout.
  *
  * Strictly adheres to Anti-AI constraints:
  * - NO DOM locators
