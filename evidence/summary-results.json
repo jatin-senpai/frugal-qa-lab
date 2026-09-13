@@ -93,7 +93,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9161,
+                      "duration": 9058,
                       "errors": [],
                       "stdout": [
                         {
@@ -109,7 +109,7 @@
                           "text": "[SCREENSHOT_CAPTURED] Captured initial gray loading state {\"path\":\"01-canvas-loading-gray.png\"}\n"
                         },
                         {
-                          "text": "[PIXEL_TRANSITION_DETECTED] Active element color layout identified via requestAnimationFrame {\"elapsedSinceStartMs\":8735.800000000745,\"polledFrames\":525,\"initialGrayConfirmed\":true,\"sampledColor\":{\"r\":0,\"g\":230,\"b\":118,\"a\":255},\"targetCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}}\n"
+                          "text": "[PIXEL_TRANSITION_DETECTED] Active element color layout identified via requestAnimationFrame {\"elapsedSinceStartMs\":8751,\"polledFrames\":526,\"initialGrayConfirmed\":true,\"sampledColor\":{\"r\":0,\"g\":230,\"b\":118,\"a\":255},\"targetCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Canvas rendered and confirmed initial gray loading threshold\n"
@@ -123,7 +123,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:12.800Z",
+                      "startTime": "2026-09-13T17:41:58.771Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -163,17 +163,17 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 858,
+                      "duration": 849,
                       "errors": [],
                       "stdout": [
                         {
                           "text": "[TEST_START] Initiating 30ms-100ms chained action race execution \n"
                         },
                         {
-                          "text": "[DETECTION_FIRED] Pixel transition detected. Commencing ultra-rapid action chain. {\"transitionTimestamp\":623}\n"
+                          "text": "[DETECTION_FIRED] Pixel transition detected. Commencing ultra-rapid action chain. {\"transitionTimestamp\":622.8000000007451,\"nodeDetectionTimestamp\":10176.6795}\n"
                         },
                         {
-                          "text": "[ACTION_CHAIN_COMPLETED] Chained action sequence executed {\"detectionTimestamp\":623,\"actionStart\":10262.139875,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10298.874208,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10305.259},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10358.729791,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10360.840583}],\"actionEnd\":10360.840583,\"totalElapsedSinceDetectionMs\":9737.840583,\"actionExecutionDurationMs\":98.70070799999849,\"isWithinRaceWindow\":false}\n"
+                          "text": "[ACTION_CHAIN_COMPLETED] Chained action sequence executed {\"detectionTimestamp\":10176.6795,\"actionStart\":10179.873167,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10213.538042,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10218.040583},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10258.390208,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10260.89575}],\"actionEnd\":10260.89575,\"totalElapsedSinceDetectionMs\":84.21624999999949,\"actionExecutionDurationMs\":81.02258299999994,\"isWithinRaceWindow\":true}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Action execution duration completed within race constraints (<=100ms)\n"
@@ -184,7 +184,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:22.152Z",
+                      "startTime": "2026-09-13T17:42:08.018Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -224,7 +224,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 798,
+                      "duration": 810,
                       "errors": [],
                       "stdout": [
                         {
@@ -234,7 +234,7 @@
                           "text": "[INITIAL_COORDINATES_DETECTED] Target detected at initial position {\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}\n"
                         },
                         {
-                          "text": "[CIRCUIT_BREAKER_EXECUTED] Circuit breaker completed guarded action {\"circuitBreakerState\":\"CLOSED\",\"trippedCount\":0,\"resolvedCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600},\"actionResult\":{\"detectionTimestamp\":11120.585916,\"actionStart\":11122.298291,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":11151.982916,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":11154.269875},{\"step\":\"DRAG_15PX_X\",\"timestamp\":11198.979708,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":11200.3705}],\"actionEnd\":11200.3705,\"totalElapsedSinceDetectionMs\":79.7845840000009,\"actionExecutionDurationMs\":78.07220900000175,\"isWithinRaceWindow\":true}}\n"
+                          "text": "[CIRCUIT_BREAKER_EXECUTED] Circuit breaker completed guarded action {\"circuitBreakerState\":\"RECOVERED\",\"trippedCount\":1,\"resolvedCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600},\"actionResult\":{\"detectionTimestamp\":11028.398667,\"actionStart\":11029.557083,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":11059.670125,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":11062.161042},{\"step\":\"DRAG_15PX_X\",\"timestamp\":11104.492083,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":11107.208625}],\"actionEnd\":11107.208625,\"totalElapsedSinceDetectionMs\":78.80995799999982,\"actionExecutionDurationMs\":77.65154199999961,\"isWithinRaceWindow\":true}}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Circuit breaker handled dynamic coordinate drift without blind failure\n"
@@ -245,7 +245,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:23.015Z",
+                      "startTime": "2026-09-13T17:42:08.872Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -266,7 +266,7 @@
               ],
               "id": "f8b9ad187c646a582861-ddc1ea294da117ffd938",
               "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
-              "line": 123,
+              "line": 127,
               "column": 3
             },
             {
@@ -285,7 +285,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 940,
+                      "duration": 994,
                       "errors": [],
                       "stdout": [
                         {
@@ -306,7 +306,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:23.816Z",
+                      "startTime": "2026-09-13T17:42:09.686Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -327,7 +327,7 @@
               ],
               "id": "f8b9ad187c646a582861-6788bed272687cce4302",
               "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
-              "line": 159,
+              "line": 170,
               "column": 3
             }
           ]
@@ -363,7 +363,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 23,
+                      "duration": 22,
                       "errors": [],
                       "stdout": [
                         {
@@ -373,13 +373,16 @@
                           "text": "[TEST_START] Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification \n"
                         },
                         {
-                          "text": "[TRANSACTION_CREATED] Received transaction wrapper from server {\"status\":201,\"headerTxnId\":\"txn_7f0fc902fc8e8cdb1da001d0\",\"headerChallenge\":\"ch_28910c162927cd2cb52aacbedbe9ed62\"}\n"
+                          "text": "[TRANSACTION_CREATED] Received transaction wrapper from server {\"status\":201,\"headerTxnId\":\"txn_6e9452cf446ca2dc13dd4d3e\",\"headerChallenge\":\"ch_002e584dc91fb3a7ff740f9683c960db\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Extracted valid transaction ID from X-Transaction-Id response header\n"
                         },
                         {
-                          "text": "[PUT_DISPATCHED] Dispatched signed PUT update request {\"status\":200,\"elapsedMs\":3.2668330000014976,\"sentMac\":\"4dfeeb214dd7f9d77d8b98cd00f35f24dc1d336e9f0b202b937ab246664f536985a8f00cd0e54641636a752bd82595d541b50a006a12beee59cff10f805fb97e\"}\n"
+                          "text": "[ASSERTION:PASS] Extracted valid server timestamp from response header/body\n"
+                        },
+                        {
+                          "text": "[PUT_DISPATCHED] Dispatched signed PUT update request {\"status\":200,\"elapsedMs\":3.3520000000007713,\"sentMac\":\"30aeb9565f90e67ea2fd4bb9d3050d0b38acd789ba76b19a0b3eed5aa504455c01b35e65ae9d13630bf4959738aa9fe642383e2ef7d7daeb0dafb7ae6eae33b1\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Server verified dynamic HMAC-SHA512 header and settled transaction\n"
@@ -387,7 +390,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:24.769Z",
+                      "startTime": "2026-09-13T17:42:10.698Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -423,7 +426,7 @@
                           "text": "[TEST_START] Executing immediate Replay Attack within <150ms of PUT completion \n"
                         },
                         {
-                          "text": "[REPLAY_ATTACK_EXECUTED] Dispatched initial request followed by immediate duplicate payload {\"initialStatus\":200,\"replayStatus\":409,\"burstDeltaMs\":0.616041999999652,\"completedWithin150Ms\":true,\"replayedSignature\":\"0a9b57b4701c188a3bf693ced806fe5bf8990b8614596ed095a76326638b49aeb00a828c8524ffb9dc02307b9949969ce663b20f8a880b6455f709a6ee83921a\"}\n"
+                          "text": "[REPLAY_ATTACK_EXECUTED] Dispatched initial request followed by immediate duplicate payload {\"initialStatus\":200,\"replayStatus\":409,\"burstDeltaMs\":0.7396249999983411,\"completedWithin150Ms\":true,\"replayedSignature\":\"33bd2c39de41a5aa460d2d18b31e1767524f328d05b56b4d8664cd34243a3f51f87740b12bffe2ea5fd767ce52b2ea5c04c8a666984ed41f0ec1244e1670335b\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Initial financial transaction settled successfully\n"
@@ -437,7 +440,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:24.802Z",
+                      "startTime": "2026-09-13T17:42:10.727Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -447,7 +450,7 @@
               ],
               "id": "1b909e28f501beb796bc-cc2dfb435b878fcd587c",
               "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 88,
+              "line": 100,
               "column": 3
             },
             {
@@ -466,7 +469,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4,
+                      "duration": 5,
                       "errors": [],
                       "stdout": [
                         {
@@ -487,7 +490,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:24.809Z",
+                      "startTime": "2026-09-13T17:42:10.734Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -497,7 +500,7 @@
               ],
               "id": "1b909e28f501beb796bc-796f3a34c34d7eca86df",
               "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 133,
+              "line": 145,
               "column": 3
             },
             {
@@ -537,11 +540,11 @@
                           "text": "\n🚨 [HIGH_RISK_SECURITY_ALERT] HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED: Server permitted duplicate transaction replay!\n"
                         },
                         {
-                          "text": "Details: {\n  \"transactionId\": \"txn_0653a62deb90b8fb29559d04\",\n  \"replayedMac\": \"d988df3a66c7c2a2e03c58ead370eb6fb18319f66727f1c20d6e1413956648f528e19df50bdddf2c1305b60fb39c02d622a36d643cfc864166b6812db0eabfc7\",\n  \"duplicateResponseStatus\": 200,\n  \"duplicateResponseBody\": {\n    \"status\": \"SETTLED\",\n    \"transactionId\": \"txn_0653a62deb90b8fb29559d04\",\n    \"settledAt\": 1789319544819,\n    \"proofOfWorkMac\": \"d988df3a66c7c2a2e03c58ead370eb6fb18319f66727f1c20d6e1413956648f528e19df50bdddf2c1305b60fb39c02d622a36d643cfc864166b6812db0eabfc7\"\n  }\n}\n\n"
+                          "text": "Details: {\n  \"transactionId\": \"txn_aeb6c4aaa6d2382964cc14a9\",\n  \"replayedMac\": \"133c3bcc55e1b54b07ff3bb2c9ab443d1020576bb87a3ee1051100530b54565df5b4994f3ca2aff588d2e1d6ce503ddfe5859015cd4435ec1bb4c24272f30a3d\",\n  \"duplicateResponseStatus\": 200,\n  \"duplicateResponseBody\": {\n    \"status\": \"SETTLED\",\n    \"transactionId\": \"txn_aeb6c4aaa6d2382964cc14a9\",\n    \"settledAt\": 1789321330746,\n    \"proofOfWorkMac\": \"133c3bcc55e1b54b07ff3bb2c9ab443d1020576bb87a3ee1051100530b54565df5b4994f3ca2aff588d2e1d6ce503ddfe5859015cd4435ec1bb4c24272f30a3d\"\n  }\n}\n\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:24.816Z",
+                      "startTime": "2026-09-13T17:42:10.742Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -551,7 +554,7 @@
               ],
               "id": "1b909e28f501beb796bc-ef4fc7d386fcbffb960e",
               "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
-              "line": 200,
+              "line": 212,
               "column": 3
             }
           ]
@@ -587,7 +590,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 239,
+                      "duration": 218,
                       "errors": [],
                       "stdout": [
                         {
@@ -597,7 +600,7 @@
                           "text": "[TEST_START] Testing open shadow root piercing without static IDs, classes, or text matching \n"
                         },
                         {
-                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_zic0o\"}\n"
+                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_q0xc6\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Verified custom element uses dynamic regenerating class strings\n"
@@ -611,7 +614,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:24.831Z",
+                      "startTime": "2026-09-13T17:42:10.760Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -651,7 +654,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 84,
+                      "duration": 94,
                       "errors": [],
                       "stdout": [
                         {
@@ -666,7 +669,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:25.078Z",
+                      "startTime": "2026-09-13T17:42:10.987Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -706,7 +709,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 200,
+                      "duration": 212,
                       "errors": [],
                       "stdout": [
                         {
@@ -727,7 +730,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T17:12:25.165Z",
+                      "startTime": "2026-09-13T17:42:11.085Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -758,8 +761,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-13T17:12:12.455Z",
-    "duration": 12946.804,
+    "startTime": "2026-09-13T17:41:58.430Z",
+    "duration": 12906.732,
     "expected": 11,
     "skipped": 0,
     "unexpected": 0,

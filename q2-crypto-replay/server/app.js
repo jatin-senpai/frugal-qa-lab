@@ -86,14 +86,23 @@ export function createQ2Server(port = 3002) {
 
     // Compute expected HMAC-SHA512
     const canonicalBody = canonicalizeJson(req.body);
-    const stringToSign = `${id}|${canonicalBody}|${clientTimestampUs}|${tx.challengeToken}`;
-    const expectedMac = crypto.createHmac('sha512', HMAC_SECRET).update(stringToSign).digest('hex');
+    // Format A (5-tuple binding server timestamp): id|canonicalBody|clientTimestampUs|serverTimeMs|challengeToken
+    const stringToSign5 = `${id}|${canonicalBody}|${clientTimestampUs}|${tx.serverTimeMs}|${tx.challengeToken}`;
+    const expectedMac5 = crypto.createHmac('sha512', HMAC_SECRET).update(stringToSign5).digest('hex');
+
+    // Format B (4-tuple legacy): id|canonicalBody|clientTimestampUs|challengeToken
+    const stringToSign4 = `${id}|${canonicalBody}|${clientTimestampUs}|${tx.challengeToken}`;
+    const expectedMac4 = crypto.createHmac('sha512', HMAC_SECRET).update(stringToSign4).digest('hex');
 
     // Constant-time comparison to prevent timing attacks
     const clientMacBuffer = Buffer.from(clientMac, 'hex');
-    const expectedMacBuffer = Buffer.from(expectedMac, 'hex');
+    const expectedMac5Buffer = Buffer.from(expectedMac5, 'hex');
+    const expectedMac4Buffer = Buffer.from(expectedMac4, 'hex');
 
-    if (clientMacBuffer.length !== expectedMacBuffer.length || !crypto.timingSafeEqual(clientMacBuffer, expectedMacBuffer)) {
+    const isValid5 = clientMacBuffer.length === expectedMac5Buffer.length && crypto.timingSafeEqual(clientMacBuffer, expectedMac5Buffer);
+    const isValid4 = clientMacBuffer.length === expectedMac4Buffer.length && crypto.timingSafeEqual(clientMacBuffer, expectedMac4Buffer);
+
+    if (!isValid5 && !isValid4) {
       return { ok: false, status: 401, error: 'ERR_INVALID_MAC', message: 'HMAC-SHA512 signature verification failed.' };
     }
 

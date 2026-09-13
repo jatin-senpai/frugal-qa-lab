@@ -34,10 +34,10 @@ export class ReplayClient {
   /**
    * Dispatches PUT request with calculated cryptographic HMAC header
    */
-  async sendPutRequest(endpointPath, transactionId, bodyPayload, challengeToken, timestampUs, customMac = null) {
+  async sendPutRequest(endpointPath, transactionId, bodyPayload, challengeToken, timestampUs, customMac = null, serverTimestamp = null) {
     const sig = customMac
       ? { mac: customMac, timestampUs }
-      : generateFrugalMac(transactionId, bodyPayload, challengeToken, timestampUs, this.secret);
+      : generateFrugalMac(transactionId, bodyPayload, challengeToken, timestampUs, serverTimestamp, this.secret);
 
     const headers = {
       'Content-Type': 'application/json',
@@ -70,19 +70,27 @@ export class ReplayClient {
    * 2. Immediately duplicates and resends the exact same packet payload with
    *    identical timestamp and X-Frugal-Mac token within 150 ms of completion.
    */
-  async executeReplayAttack(transactionId, bodyPayload, challengeToken, endpointPath = null) {
+  async executeReplayAttack(transactionId, bodyPayload, challengeToken, serverTimestampOrPath = null, optionalPath = null) {
+    let serverTimestamp = null;
+    let endpointPath = null;
+    if (typeof serverTimestampOrPath === 'string' && serverTimestampOrPath.startsWith('/')) {
+      endpointPath = serverTimestampOrPath;
+    } else {
+      serverTimestamp = serverTimestampOrPath;
+      endpointPath = optionalPath;
+    }
     const path = endpointPath || `/transactions/${transactionId}`;
     const timestampUs = getMicrosecondTimestamp();
-    const sig = generateFrugalMac(transactionId, bodyPayload, challengeToken, timestampUs, this.secret);
+    const sig = generateFrugalMac(transactionId, bodyPayload, challengeToken, timestampUs, serverTimestamp, this.secret);
 
     // Initial PUT Request
     const t0 = performance.now();
-    const initialRes = await this.sendPutRequest(path, transactionId, bodyPayload, challengeToken, timestampUs, sig.mac);
+    const initialRes = await this.sendPutRequest(path, transactionId, bodyPayload, challengeToken, timestampUs, sig.mac, serverTimestamp);
     const tComplete = performance.now();
 
     // Replay Burst (<150ms)
     const tReplayStart = performance.now();
-    const replayRes = await this.sendPutRequest(path, transactionId, bodyPayload, challengeToken, timestampUs, sig.mac);
+    const replayRes = await this.sendPutRequest(path, transactionId, bodyPayload, challengeToken, timestampUs, sig.mac, serverTimestamp);
     const tReplayEnd = performance.now();
 
     const burstDeltaMs = tReplayEnd - tComplete;

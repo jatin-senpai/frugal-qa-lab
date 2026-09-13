@@ -23,15 +23,29 @@ export function getMicrosecondTimestamp() {
 
 /**
  * Generates X-Frugal-Mac using HMAC-SHA512
+ * Supports canonical String-to-Sign formats:
+ * - 5-tuple: id|canonicalBody|clientTimestampUs|serverTimestamp|challengeToken
+ * - 4-tuple: id|canonicalBody|clientTimestampUs|challengeToken
  */
-export function generateFrugalMac(transactionId, payload, challengeToken, timestampUs, secret) {
+export function generateFrugalMac(transactionId, payload, challengeToken, timestampUs, serverTimestampOrSecret, optionalSecret) {
+  let serverTimestamp = null;
+  let secret = serverTimestampOrSecret;
+  if (optionalSecret !== undefined) {
+    serverTimestamp = serverTimestampOrSecret;
+    secret = optionalSecret;
+  }
+
   const canonicalBody = canonicalizeJson(payload);
-  const stringToSign = `${transactionId}|${canonicalBody}|${timestampUs}|${challengeToken}`;
+  const stringToSign = serverTimestamp
+    ? `${transactionId}|${canonicalBody}|${timestampUs}|${serverTimestamp}|${challengeToken}`
+    : `${transactionId}|${canonicalBody}|${timestampUs}|${challengeToken}`;
+
   const mac = crypto.createHmac('sha512', secret).update(stringToSign).digest('hex');
   return {
     mac,
     canonicalBody,
     stringToSign,
-    timestampUs
+    timestampUs,
+    serverTimestamp
   };
 }

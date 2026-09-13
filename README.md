@@ -1,23 +1,24 @@
 # Frugal QA Lab
-> **Deterministic AI-Native Quality Engineering & Security Testing Laboratory**  
+> **AI-Native Quality Engineering & Security Testing Laboratory**  
 > Candidate Assessment Submission for **Frugal Testing / BuildNexTech "AI-Native Software Engineer Intern"**  
 > **Author:** Jatin Senpai (`jatin-senpai`)  
+> **Focus:** AI-Native Software Engineering, QA Automation & Security  
 > **Repository:** [https://github.com/jatin-senpai/frugal-qa-lab](https://github.com/jatin-senpai/frugal-qa-lab)  
-> *Notice: This project is an independent candidate engineering submission built to satisfy the placement evaluation requirements specified in the authoritative 18-page assessment document.*
+> *Notice: This project is an independent candidate engineering submission built to satisfy the placement evaluation requirements specified in the assessment specification document.*
 
 ---
 
 ## 1. Project Purpose
 
-**Frugal QA Lab** is a production-grade, locally reproducible engineering workspace built to address the challenging testing problems presented in the Frugal Testing / BuildNexTech assessment. 
+**Frugal QA Lab** is a reproducible engineering workspace built to address the testing problems presented in the Frugal Testing / BuildNexTech assessment. 
 
-Modern web and distributed systems frequently fail in domains where conventional Selenium/Cypress automation tools and basic assertion suites are ineffective:
-1. **Asynchronous UI & Pixel Runtimes**: Pure HTML5 Canvas 2D/WebGL engines that possess zero DOM element nodes, rendering standard CSS/XPath selectors completely non-functional.
+Modern web and distributed systems frequently fail in domains where conventional automation tools and basic assertion suites are ineffective:
+1. **Asynchronous UI & Pixel Runtimes**: Pure HTML5 Canvas 2D/WebGL engines that possess zero DOM element nodes, rendering standard CSS/XPath selectors non-functional.
 2. **Dynamic Jitter & Network Chaos**: WebSocket streaming connections subject to non-linear network latency (Fibonacci progression) and micro-burst race conditions ($30\text{--}100\text{ ms}$ action windows).
 3. **Cryptographic Financial Replay**: Stateful distributed APIs that must prevent duplicate transaction replay and tampering across microsecond delivery windows ($<150\text{ ms}$) using dynamic HMAC-SHA512 hash-chaining.
 4. **Sealed DOM Encapsulation**: Deeply nested Web Components with randomized CSS class obfuscation and W3C closed Shadow DOM security boundaries that resist DOM traversal.
 
-Rather than presenting theoretical scripts, simulated logs, or mocked pass/fail indicators, **Frugal QA Lab** provides real, executable testbeds, deterministic test runners, and real evidence artifacts.
+Rather than presenting theoretical scripts or simulated logs, **Frugal QA Lab** provides real, executable testbeds, deterministic test runners, and real evidence artifacts.
 
 ---
 
@@ -25,19 +26,19 @@ Rather than presenting theoretical scripts, simulated logs, or mocked pass/fail 
 
 The project maps directly to every requirement across the 18-page assessment specification:
 
-| Assessment Section | Component / Topic | Max Points | Implementation Location | Verified Execution Result |
+| Assessment Section | Component / Topic | Max Points | Implementation Location | Execution Result |
 | :--- | :--- | :---: | :--- | :---: |
 | **Section 0** | Alignment & Pre-Evaluation Disclosures | Mandatory | [`section-0/alignment.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-0/alignment.md) | Formally Complete (Q1–Q6) |
-| **Section A (Q1)** | Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interception | 15 Points | [`q1-canvas-chaos/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q1-canvas-chaos/) | **4/4 Tests Passed** (7.8s) |
-| **Section A (Q2)** | Cryptographic Replay Testing, Stateful Nonces & Hash-Chain API Chaining | 4 Points | [`q2-crypto-replay/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q2-crypto-replay/) | **4/4 Tests Passed** (32ms) |
-| **Section A (Q3)** | Sealed Closed-Boundary Shadow DOM Pathfinding & Accessibility Tree Refactoring | 1 Point | [`q3-shadow-dom/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q3-shadow-dom/) | **3/3 Tests Passed** (523ms) |
+| **Section A (Q1)** | Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interception | 15 Points | [`q1-canvas-chaos/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q1-canvas-chaos/) | **4/4 Tests Passed** (12.4s) |
+| **Section A (Q2)** | Cryptographic Replay Testing, Stateful Nonces & Hash-Chain API Chaining | 4 Points | [`q2-crypto-replay/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q2-crypto-replay/) | **4/4 Tests Passed** (486ms) |
+| **Section A (Q3)** | Sealed Closed-Boundary Shadow DOM Pathfinding & Accessibility Tree Refactoring | 1 Point | [`q3-shadow-dom/`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/q3-shadow-dom/) | **3/3 Tests Passed** (918ms) |
 | **Section B (Q4–Q20)** | 17 Analytical Engineering Scenarios (5 pts each, Q19 compulsory) | 70 Points | [`section-b/answers.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/answers.md) | Verified ($\le 150$ words each) |
 | **Section B (Situations)** | Situations A–D: Behavioral Alignment Decisions | Assessed | [`section-b/answers.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/answers.md) | Verified (ii, i, ii, i) |
-| **Section B (Q21)** | Technical Article (Topic B: Restrictive MCP Sandboxes) | 5 Points | [`section-b/article.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/article.md) | 1,408 words ($750\text{--}1500$ range) |
+| **Section B (Q21)** | Technical Article (Topic B: Restrictive MCP Sandboxes) | 5 Points | [`section-b/article.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/article.md) | 1,390 words ($750\text{--}1500$ range) |
 | **Deliverables (Q22)** | Profile & Technical Portfolio Compilation | Compulsory | [`section-b/portfolio.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/portfolio.md) | Candidate input placeholders marked |
 | **Deliverables (Q23)** | Video CV Evaluation Presentation Script | 5 Points | [`section-b/video_cv_script.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/section-b/video_cv_script.md) | 2m 30s timed script |
-| **Audit Matrix** | Requirement-by-Requirement Verification Matrix | — | [`FINAL_REQUIREMENTS_MATRIX.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/FINAL_REQUIREMENTS_MATRIX.md) | Audit Complete |
-| **Total** | **All Sections Combined** | **100 Points** | **Unified Repository** | **11/11 Automated Tests Passed** |
+| **Audit Matrix** | Requirement-by-Requirement Verification Matrix | — | [`FINAL_REQUIREMENTS_MATRIX.md`](file:///Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/FINAL_REQUIREMENTS_MATRIX.md) | Matrix Complete |
+| **Total** | **All Sections Combined** | **100 Points** | **Unified Repository** | **11/11 Automated Tests Passed (12.9s)** |
 
 ---
 

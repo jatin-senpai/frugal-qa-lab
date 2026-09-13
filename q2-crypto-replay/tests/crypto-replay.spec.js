@@ -62,6 +62,10 @@ test.describe('Q2: Cryptographic Replay Testing, Stateful Nonces & Hash-Chain AP
     // Step 2: Formulate dynamic PUT request with HMAC-SHA512 header (Specification 2)
     const transactionId = initResult.headerTxnId;
     const challengeToken = initResult.body.challengeToken;
+    const serverTimestamp = initResult.headerTimestamp || initResult.body.serverTimeMs.toString();
+    expect(serverTimestamp).toBeDefined();
+    telemetry.recordAssertion('Extracted valid server timestamp from response header/body', true, { serverTimestamp });
+
     const updatePayload = {
       action: 'SETTLE_FUNDS',
       amount: 45000.00,
@@ -70,7 +74,15 @@ test.describe('Q2: Cryptographic Replay Testing, Stateful Nonces & Hash-Chain AP
     };
 
     const timestampUs = getMicrosecondTimestamp();
-    const putResult = await client.sendPutRequest(`/transactions/${transactionId}`, transactionId, updatePayload, challengeToken, timestampUs);
+    const putResult = await client.sendPutRequest(
+      `/transactions/${transactionId}`,
+      transactionId,
+      updatePayload,
+      challengeToken,
+      timestampUs,
+      null,
+      serverTimestamp
+    );
     telemetry.log('PUT_DISPATCHED', 'Dispatched signed PUT update request', {
       status: putResult.status,
       elapsedMs: putResult.elapsedMs,

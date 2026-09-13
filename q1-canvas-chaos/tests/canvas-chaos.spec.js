@@ -89,12 +89,14 @@ test.describe('Q1: Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interce
 
     // Detect state transition
     const transition = await waitForCanvasPixelStateTransition(page, '#trading-canvas', 15000);
+    const detectionTimestamp = performance.now();
     telemetry.log('DETECTION_FIRED', 'Pixel transition detected. Commencing ultra-rapid action chain.', {
-      transitionTimestamp: transition.transitionTimestamp
+      transitionTimestamp: transition.transitionTimestamp,
+      nodeDetectionTimestamp: detectionTimestamp
     });
 
     // Fire chained action: Hover -> Drag 15px X -> Click
-    const actionTelemetry = await executeChainedAction(page, transition.targetCoordinates, transition.transitionTimestamp, {
+    const actionTelemetry = await executeChainedAction(page, transition.targetCoordinates, detectionTimestamp, {
       dragDistancePx: 15
     });
 
@@ -106,8 +108,10 @@ test.describe('Q1: Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interce
 
     // Assert that the action executed rapidly (action timing strictly measured)
     expect(actionTelemetry.actionExecutionDurationMs).toBeLessThanOrEqual(100);
+    expect(actionTelemetry.totalElapsedSinceDetectionMs).toBeLessThanOrEqual(100);
     telemetry.recordAssertion('Action execution duration completed within race constraints (<=100ms)', true, {
-      actionDurationMs: actionTelemetry.actionExecutionDurationMs
+      actionDurationMs: actionTelemetry.actionExecutionDurationMs,
+      totalElapsedSinceDetectionMs: actionTelemetry.totalElapsedSinceDetectionMs
     });
 
     // Assert canvas order execution state
@@ -132,10 +136,16 @@ test.describe('Q1: Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interce
     // Instantiate circuit breaker
     const breaker = new CoordinateCircuitBreaker();
 
+    // Pass drifted/stale coordinates (-150px offset, placing it outside button bounds) to force circuit breaker trip and recovery
+    const staleCoordinates = {
+      ...transition.targetCoordinates,
+      centerX: transition.targetCoordinates.centerX - 150
+    };
+
     // Execute action wrapped inside the circuit breaker macro
     const result = await breaker.executeGuardedAction(
       page,
-      transition.targetCoordinates,
+      staleCoordinates,
       async (resolvedCoords) => {
         return await executeChainedAction(page, resolvedCoords, performance.now(), { dragDistancePx: 15 });
       }
@@ -143,8 +153,9 @@ test.describe('Q1: Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interce
 
     telemetry.log('CIRCUIT_BREAKER_EXECUTED', 'Circuit breaker completed guarded action', result);
 
-    // Verify recovery
-    expect(['CLOSED', 'RECOVERED']).toContain(result.circuitBreakerState);
+    // Verify circuit breaker tripped and recovered target coordinates
+    expect(result.circuitBreakerState).toBe('RECOVERED');
+    expect(result.trippedCount).toBeGreaterThan(0);
     telemetry.recordAssertion('Circuit breaker handled dynamic coordinate drift without blind failure', true, {
       state: result.circuitBreakerState,
       trippedCount: result.trippedCount,

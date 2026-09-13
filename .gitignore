@@ -1,3 +1,30 @@
+# Dependencies
 node_modules/
+package-lock.json.backup
+
+# Test execution outputs
 test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Environment and Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# System & IDE junk
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build & Temporary
+dist/
+build/
+tmp/
+*.tmp
