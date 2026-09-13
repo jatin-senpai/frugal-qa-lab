@@ -1,0 +1,189 @@
+{
+  "module": "q2-crypto-replay",
+  "executedAt": "2026-09-13T16:20:07.379Z",
+  "durationMs": 61,
+  "overallStatus": "PASSED",
+  "totalAssertions": 10,
+  "passedAssertions": 10,
+  "failedAssertions": 0,
+  "vulnerabilityAlerts": [
+    {
+      "severity": "CRITICAL_HIGH_RISK",
+      "title": "HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED: Server permitted duplicate transaction replay!",
+      "details": {
+        "transactionId": "txn_f49334e4028369e93b658f00",
+        "replayedMac": "386fc03d223b820f0271a1f3b5a377648b04a7de97bf6720dcb73c226f8728a8ee74d3388919cae67906709867b8446bc4dbe09c9d1cddc87aa69224c611a420",
+        "duplicateResponseStatus": 200,
+        "duplicateResponseBody": {
+          "status": "SETTLED",
+          "transactionId": "txn_f49334e4028369e93b658f00",
+          "settledAt": 1789316407374,
+          "proofOfWorkMac": "386fc03d223b820f0271a1f3b5a377648b04a7de97bf6720dcb73c226f8728a8ee74d3388919cae67906709867b8446bc4dbe09c9d1cddc87aa69224c611a420"
+        }
+      },
+      "timestamp": "2026-09-13T16:20:07.374Z"
+    }
+  ],
+  "assertions": [
+    {
+      "description": "Extracted valid transaction ID from X-Transaction-Id response header",
+      "passed": true,
+      "details": {
+        "transactionId": "txn_733ffdd8a8bfbff0151eb5d0"
+      },
+      "timestamp": "2026-09-13T16:20:07.344Z"
+    },
+    {
+      "description": "Server verified dynamic HMAC-SHA512 header and settled transaction",
+      "passed": true,
+      "details": {
+        "settledMac": "b5d83ebdf453a9dbf9eb798616f234cf742ef8f78725013a1118f256c8231794f9404753cbacdbd006f5a7f30a6d197bc94fcc6bcd930b8bcf1426e53550cf51"
+      },
+      "timestamp": "2026-09-13T16:20:07.349Z"
+    },
+    {
+      "description": "Initial financial transaction settled successfully",
+      "passed": true,
+      "details": {},
+      "timestamp": "2026-09-13T16:20:07.357Z"
+    },
+    {
+      "description": "Duplicate replay packet dispatched within 150ms window",
+      "passed": true,
+      "details": {
+        "burstDeltaMs": 0.8423329999999964
+      },
+      "timestamp": "2026-09-13T16:20:07.357Z"
+    },
+    {
+      "description": "Backend correctly dropped and rejected replay attempt with HTTP 409 Conflict",
+      "passed": true,
+      "details": {
+        "status": 409,
+        "error": "ERR_TRANSACTION_REPLAY_DETECTED",
+        "deltaFromFirstRequestMs": 1
+      },
+      "timestamp": "2026-09-13T16:20:07.357Z"
+    },
+    {
+      "description": "Backend rejected tampered payload body with HTTP 401 Unauthorized",
+      "passed": true,
+      "details": {},
+      "timestamp": "2026-09-13T16:20:07.362Z"
+    },
+    {
+      "description": "Backend rejected tampered timestamp with HTTP 401 Unauthorized",
+      "passed": true,
+      "details": {},
+      "timestamp": "2026-09-13T16:20:07.363Z"
+    },
+    {
+      "description": "Backend rejected corrupted MAC string with HTTP 401 Unauthorized",
+      "passed": true,
+      "details": {},
+      "timestamp": "2026-09-13T16:20:07.364Z"
+    },
+    {
+      "description": "Backend rejected stale timestamp with HTTP 422 Unprocessable Entity",
+      "passed": true,
+      "details": {},
+      "timestamp": "2026-09-13T16:20:07.365Z"
+    },
+    {
+      "description": "Framework successfully trapped and alerted on high-risk replay vulnerability",
+      "passed": true,
+      "details": {
+        "severity": "CRITICAL_HIGH_RISK",
+        "title": "HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED: Server permitted duplicate transaction replay!",
+        "details": {
+          "transactionId": "txn_f49334e4028369e93b658f00",
+          "replayedMac": "386fc03d223b820f0271a1f3b5a377648b04a7de97bf6720dcb73c226f8728a8ee74d3388919cae67906709867b8446bc4dbe09c9d1cddc87aa69224c611a420",
+          "duplicateResponseStatus": 200,
+          "duplicateResponseBody": {
+            "status": "SETTLED",
+            "transactionId": "txn_f49334e4028369e93b658f00",
+            "settledAt": 1789316407374,
+            "proofOfWorkMac": "386fc03d223b820f0271a1f3b5a377648b04a7de97bf6720dcb73c226f8728a8ee74d3388919cae67906709867b8446bc4dbe09c9d1cddc87aa69224c611a420"
+          }
+        },
+        "timestamp": "2026-09-13T16:20:07.374Z"
+      },
+      "timestamp": "2026-09-13T16:20:07.374Z"
+    }
+  ],
+  "events": [
+    {
+      "timestamp": "2026-09-13T16:20:07.324Z",
+      "relativeMs": 6,
+      "category": "TEST_START",
+      "message": "Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification",
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.342Z",
+      "relativeMs": 24,
+      "category": "TRANSACTION_CREATED",
+      "message": "Received transaction wrapper from server",
+      "metadata": {
+        "status": 201,
+        "headerTxnId": "txn_733ffdd8a8bfbff0151eb5d0",
+        "headerChallenge": "ch_20dcc153f1328911e0b2543e43685036"
+      }
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.349Z",
+      "relativeMs": 31,
+      "category": "PUT_DISPATCHED",
+      "message": "Dispatched signed PUT update request",
+      "metadata": {
+        "status": 200,
+        "elapsedMs": 4.140832999999986,
+        "sentMac": "b5d83ebdf453a9dbf9eb798616f234cf742ef8f78725013a1118f256c8231794f9404753cbacdbd006f5a7f30a6d197bc94fcc6bcd930b8bcf1426e53550cf51"
+      }
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.354Z",
+      "relativeMs": 36,
+      "category": "TEST_START",
+      "message": "Executing immediate Replay Attack within <150ms of PUT completion",
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.357Z",
+      "relativeMs": 39,
+      "category": "REPLAY_ATTACK_EXECUTED",
+      "message": "Dispatched initial request followed by immediate duplicate payload",
+      "metadata": {
+        "initialStatus": 200,
+        "replayStatus": 409,
+        "burstDeltaMs": 0.8423329999999964,
+        "completedWithin150Ms": true,
+        "replayedSignature": "e83c60f76bbe2987ff1d3ad045959a06138f6f735530b66d07ee87eea15a8cf6260664cd1e21d5c1c727fb634c05b3bec9e665a6767ceebbe2c0affdae97ba4e"
+      }
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.361Z",
+      "relativeMs": 43,
+      "category": "TEST_START",
+      "message": "Validating negative cryptographic mutation attack vectors",
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.372Z",
+      "relativeMs": 54,
+      "category": "TEST_START",
+      "message": "Testing Vulnerability Detection Engine against simulated unprotected replay endpoint",
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-09-13T16:20:07.374Z",
+      "relativeMs": 56,
+      "category": "VULNERABLE_TEST_EXECUTED",
+      "message": "Targeted vulnerable route to test security assertion handler",
+      "metadata": {
+        "initialStatus": 200,
+        "replayStatus": 200
+      }
+    }
+  ]
+}
