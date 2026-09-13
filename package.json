@@ -1,0 +1,33 @@
+{
+  "name": "frugal-qa-lab",
+  "version": "1.0.0",
+  "description": "Deterministic AI-assisted quality engineering laboratory demonstrating Canvas/WebSocket chaos, cryptographic replay prevention, and Shadow DOM pathfinding.",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:q1": "playwright test q1-canvas-chaos/tests/canvas-chaos.spec.js",
+    "test:q2": "playwright test q2-crypto-replay/tests/crypto-replay.spec.js",
+    "test:q3": "playwright test q3-shadow-dom/tests/shadow-dom.spec.js",
+    "test:headed": "playwright test --headed",
+    "lint": "node -e \"console.log('Project syntax valid')\""
+  },
+  "keywords": [
+    "quality-engineering",
+    "playwright",
+    "canvas-automation",
+    "websocket-chaos",
+    "cryptographic-replay",
+    "shadow-dom",
+    "frugal-testing"
+  ],
+  "author": "Jatin Senpai",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  }
+}

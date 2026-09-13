@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frugal QA Lab — Canvas Chaos Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal-container">
+    <header class="terminal-header">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <h1>FRUGAL // APEX TERMINAL (CANVAS v2.4)</h1>
+      </div>
+      <div class="connection-status" id="connection-status">
+        <span class="status-indicator loading"></span>
+        <span id="status-label">INITIALIZING WEBSOCKET...</span>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <!-- HTML5 Canvas Rendering Surface -->
+      <div class="canvas-wrapper">
+        <canvas id="trading-canvas" width="800" height="500"></canvas>
+        
+        <!-- Structured Error Boundary (Shown upon server boundary corruption) -->
+        <div id="canvas-error-boundary" class="error-boundary hidden">
+          <div class="error-dialog">
+            <div class="error-icon">⚠️</div>
+            <h3 id="error-title">SYSTEM INTEGRITY EXCEPTION</h3>
+            <p id="error-code">CODE: ERR_STATE_CORRUPTION_MATHEMATICAL_BOUNDARY</p>
+            <div class="error-details" id="error-details">
+              <!-- Structured exception data dynamically injected -->
+            </div>
+            <button id="error-reset-btn" onclick="window.resetErrorBoundary()">Acknowledge & Halt Stream</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Telemetry Sidebar -->
+      <aside class="telemetry-panel">
+        <h2>TELEMETRY STREAM</h2>
+        <div class="telemetry-row">
+          <label>FPS Render Rate:</label>
+          <span id="fps-metric">0.0</span>
+        </div>
+        <div class="telemetry-row">
+          <label>Order Target State:</label>
+          <span id="target-state-metric">IDLE</span>
+        </div>
+        <div class="telemetry-row">
+          <label>Target Center (X, Y):</label>
+          <span id="target-coords-metric">--</span>
+        </div>
+        <div class="telemetry-row">
+          <label>Drag Delta X:</label>
+          <span id="drag-metric">0 px</span>
+        </div>
+        <div class="telemetry-row">
+          <label>Last Injected Latency:</label>
+          <span id="latency-metric">0 ms</span>
+        </div>
+        <div class="telemetry-row">
+          <label>Execution Status:</label>
+          <span id="execution-status-metric" class="status-neutral">PENDING</span>
+        </div>
+        <div class="log-console">
+          <h3>EVENT FEED</h3>
+          <ul id="event-log-list"></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

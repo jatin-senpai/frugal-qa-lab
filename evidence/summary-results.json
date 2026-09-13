@@ -1,0 +1,348 @@
+{
+  "config": {
+    "argv": [
+      "/Users/yashshviyadav/.nvm/versions/node/v24.11.0/bin/node",
+      "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/node_modules/.bin/playwright",
+      "test",
+      "q1-canvas-chaos/tests/canvas-chaos.spec.js"
+    ],
+    "configFile": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/playwright.config.js",
+    "rootDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.spec\\.js/"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/summary-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+      "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Q1: Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interceptions",
+          "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Core Spec 1 & 2: WebSocket Fibonacci Jitter & Zero-DOM Pixel-State Detection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8946,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[Test Setup] Q1 Testbed Server active on http://localhost:3001\n"
+                        },
+                        {
+                          "text": "[TEST_START] Initiating Fibonacci WebSocket jitter and pixel detector validation \n"
+                        },
+                        {
+                          "text": "[CHAOS_INJECTED] Fibonacci delay interceptor hooked into browser WebSocket layer (1s, 1s, 2s, 3s, 5s, 8s) \n"
+                        },
+                        {
+                          "text": "[SCREENSHOT_CAPTURED] Captured initial gray loading state {\"path\":\"01-canvas-loading-gray.png\"}\n"
+                        },
+                        {
+                          "text": "[PIXEL_TRANSITION_DETECTED] Active element color layout identified via requestAnimationFrame {\"elapsedSinceStartMs\":8770,\"polledFrames\":527,\"initialGrayConfirmed\":true,\"sampledColor\":{\"r\":0,\"g\":230,\"b\":118,\"a\":255},\"targetCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Canvas rendered and confirmed initial gray loading threshold\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Canvas color transitioned to active element green without DOM locators\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] WebSocket frames intercepted and injected with Fibonacci delay sequence\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:18:37.760Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-bdabb4837f8e51cb22c9",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 3: Ultra-Rapid Chained Action (Hover -> Drag 15px X -> Click) within 30-100ms Race Window",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 851,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Initiating 30ms-100ms chained action race execution \n"
+                        },
+                        {
+                          "text": "[DETECTION_FIRED] Pixel transition detected. Commencing ultra-rapid action chain. {\"transitionTimestamp\":622.8000000007451}\n"
+                        },
+                        {
+                          "text": "[ACTION_CHAIN_COMPLETED] Chained action sequence executed {\"detectionTimestamp\":622.8000000007451,\"actionStart\":9935.816041,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":9966.642708,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":9968.557916},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10014.629625,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10016.292875}],\"actionEnd\":10016.292875,\"totalElapsedSinceDetectionMs\":9393.492874999254,\"actionExecutionDurationMs\":80.47683399999914,\"isWithinRaceWindow\":false}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Action execution duration completed within race constraints (<=100ms)\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Canvas application registered order execution via drag-and-click\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:18:46.786Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-82ac1ba25b9afdd4dcd3",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 85,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 3 (Resilience): Coordinate Drift Circuit-Breaker Revalidation Macro",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 803,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Validating Coordinate Drift Circuit-Breaker on dynamic layout shift \n"
+                        },
+                        {
+                          "text": "[INITIAL_COORDINATES_DETECTED] Target detected at initial position {\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}\n"
+                        },
+                        {
+                          "text": "[CIRCUIT_BREAKER_EXECUTED] Circuit breaker completed guarded action {\"circuitBreakerState\":\"CLOSED\",\"trippedCount\":0,\"resolvedCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600},\"actionResult\":{\"detectionTimestamp\":10774.101458,\"actionStart\":10775.360666,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10808.592833,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10810.382791},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10853.0525,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10854.422666}],\"actionEnd\":10854.422666,\"totalElapsedSinceDetectionMs\":80.3212080000012,\"actionExecutionDurationMs\":79.0619999999999,\"isWithinRaceWindow\":true}}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Circuit breaker handled dynamic coordinate drift without blind failure\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Drifted target successfully executed via revalidated coordinates\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:18:47.641Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-ddc1ea294da117ffd938",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 123,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 4: Mismatched Server Boundary Checking & Structured Exception Boundary",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 922,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Testing corrupted mathematical state string injection and frontend exception boundary \n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Frontend invoked structured Exception Boundary upon mathematical corruption\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Frontend halted client-side state corruption and logged structured payload\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Trading engine state halted in ERROR state, preventing silent corruption\n"
+                        },
+                        {
+                          "text": "[Test Teardown] Q1 Testbed Server stopped.\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:18:48.448Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-6788bed272687cce4302",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 159,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-13T16:18:37.445Z",
+    "duration": 11955.734999999999,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
