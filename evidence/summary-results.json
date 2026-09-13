@@ -3,8 +3,7 @@
     "argv": [
       "/Users/yashshviyadav/.nvm/versions/node/v24.11.0/bin/node",
       "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/node_modules/.bin/playwright",
-      "test",
-      "q3-shadow-dom/tests/shadow-dom.spec.js"
+      "test"
     ],
     "configFile": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/playwright.config.js",
     "rootDir": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab",
@@ -66,6 +65,500 @@
   },
   "suites": [
     {
+      "title": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+      "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Q1: Dynamic HTML5 Canvas State Drifts & Asynchronous Race Interceptions",
+          "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Core Spec 1 & 2: WebSocket Fibonacci Jitter & Zero-DOM Pixel-State Detection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9109,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[Test Setup] Q1 Testbed Server active on http://localhost:3001\n"
+                        },
+                        {
+                          "text": "[TEST_START] Initiating Fibonacci WebSocket jitter and pixel detector validation \n"
+                        },
+                        {
+                          "text": "[CHAOS_INJECTED] Fibonacci delay interceptor hooked into browser WebSocket layer (1s, 1s, 2s, 3s, 5s, 8s) \n"
+                        },
+                        {
+                          "text": "[SCREENSHOT_CAPTURED] Captured initial gray loading state {\"path\":\"01-canvas-loading-gray.png\"}\n"
+                        },
+                        {
+                          "text": "[PIXEL_TRANSITION_DETECTED] Active element color layout identified via requestAnimationFrame {\"elapsedSinceStartMs\":8751.70000000298,\"polledFrames\":526,\"initialGrayConfirmed\":true,\"sampledColor\":{\"r\":0,\"g\":230,\"b\":118,\"a\":255},\"targetCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Canvas rendered and confirmed initial gray loading threshold\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Canvas color transitioned to active element green without DOM locators\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] WebSocket frames intercepted and injected with Fibonacci delay sequence\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:23.905Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-41a2e-o-DOM-Pixel-State-Detection-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-bdabb4837f8e51cb22c9",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 3: Ultra-Rapid Chained Action (Hover -> Drag 15px X -> Click) within 30-100ms Race Window",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 853,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Initiating 30ms-100ms chained action race execution \n"
+                        },
+                        {
+                          "text": "[DETECTION_FIRED] Pixel transition detected. Commencing ultra-rapid action chain. {\"transitionTimestamp\":625.7000000029802}\n"
+                        },
+                        {
+                          "text": "[ACTION_CHAIN_COMPLETED] Chained action sequence executed {\"detectionTimestamp\":625.7000000029802,\"actionStart\":10228.783208,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":10265.402958,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":10270.650708},{\"step\":\"DRAG_15PX_X\",\"timestamp\":10307.2475,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":10309.84575}],\"actionEnd\":10309.84575,\"totalElapsedSinceDetectionMs\":9684.14574999702,\"actionExecutionDurationMs\":81.06254199999967,\"isWithinRaceWindow\":false}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Action execution duration completed within race constraints (<=100ms)\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Canvas application registered order execution via drag-and-click\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:33.217Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-1bc32-within-30-100ms-Race-Window-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-82ac1ba25b9afdd4dcd3",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 85,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 3 (Resilience): Coordinate Drift Circuit-Breaker Revalidation Macro",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 814,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Validating Coordinate Drift Circuit-Breaker on dynamic layout shift \n"
+                        },
+                        {
+                          "text": "[INITIAL_COORDINATES_DETECTED] Target detected at initial position {\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600}\n"
+                        },
+                        {
+                          "text": "[CIRCUIT_BREAKER_EXECUTED] Circuit breaker completed guarded action {\"circuitBreakerState\":\"CLOSED\",\"trippedCount\":0,\"resolvedCoordinates\":{\"centerX\":588,\"centerY\":242,\"bounds\":{\"minX\":480,\"maxX\":696,\"minY\":220,\"maxY\":264},\"pixelCount\":600},\"actionResult\":{\"detectionTimestamp\":11073.864583,\"actionStart\":11078.222375,\"steps\":[{\"step\":\"HOVER\",\"timestamp\":11115.205417,\"x\":629,\"y\":374.5},{\"step\":\"MOUSE_DOWN\",\"timestamp\":11117.465667},{\"step\":\"DRAG_15PX_X\",\"timestamp\":11163.95425,\"x\":644,\"y\":374.5},{\"step\":\"MOUSE_UP_CLICK\",\"timestamp\":11165.313583}],\"actionEnd\":11165.313583,\"totalElapsedSinceDetectionMs\":91.4489999999987,\"actionExecutionDurationMs\":87.09120799999982,\"isWithinRaceWindow\":true}}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Circuit breaker handled dynamic coordinate drift without blind failure\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Drifted target successfully executed via revalidated coordinates\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:34.074Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-535df--Breaker-Revalidation-Macro-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-ddc1ea294da117ffd938",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 123,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 4: Mismatched Server Boundary Checking & Structured Exception Boundary",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 943,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Testing corrupted mathematical state string injection and frontend exception boundary \n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Frontend invoked structured Exception Boundary upon mathematical corruption\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Frontend halted client-side state corruption and logged structured payload\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Trading engine state halted in ERROR state, preventing silent corruption\n"
+                        },
+                        {
+                          "text": "[Test Teardown] Q1 Testbed Server stopped.\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:34.892Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/yashshviyadav/Projects/frugal_testing/frugal-qa-lab/test-results/q1-canvas-chaos-tests-canv-e79fe-ructured-Exception-Boundary-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8b9ad187c646a582861-6788bed272687cce4302",
+              "file": "q1-canvas-chaos/tests/canvas-chaos.spec.js",
+              "line": 159,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "q2-crypto-replay/tests/crypto-replay.spec.js",
+      "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Q2: Cryptographic Replay Testing, Stateful Nonces & Hash-Chain API Chaining",
+          "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+          "line": 15,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Core Spec 1 & 2: Dynamic Sequence Chaining & Cryptographic Nonce Injection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[Test Setup] Q2 Cryptographic Mock Server active on http://localhost:3002\n"
+                        },
+                        {
+                          "text": "[TEST_START] Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification \n"
+                        },
+                        {
+                          "text": "[TRANSACTION_CREATED] Received transaction wrapper from server {\"status\":201,\"headerTxnId\":\"txn_e5909cc90b2f8721cbc64fd4\",\"headerChallenge\":\"ch_e270766687a41e9e524a6daab5b88bbb\"}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Extracted valid transaction ID from X-Transaction-Id response header\n"
+                        },
+                        {
+                          "text": "[PUT_DISPATCHED] Dispatched signed PUT update request {\"status\":200,\"elapsedMs\":3.9272909999999683,\"sentMac\":\"05291c68aa0e5629c9dd2550073cd97f5bcc8a9824f2728bd97070d6f0d391d3b8df320ad705ee9d99ff36a7d5fe4896119e5c17b31372a19b96d99c565431af\"}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Server verified dynamic HMAC-SHA512 header and settled transaction\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:35.849Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b909e28f501beb796bc-2609b3af263158440f09",
+              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "Core Spec 3 & 4: Exact Replay Attack Vector (<150ms) & Replay Assertion (HTTP 409 Conflict)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Executing immediate Replay Attack within <150ms of PUT completion \n"
+                        },
+                        {
+                          "text": "[REPLAY_ATTACK_EXECUTED] Dispatched initial request followed by immediate duplicate payload {\"initialStatus\":200,\"replayStatus\":409,\"burstDeltaMs\":0.9121670000004087,\"completedWithin150Ms\":true,\"replayedSignature\":\"e0a2efe403c2c4a4056debd6f8774ceea9b051d8dc7b6e6de64711d72c25caf5b85dc529ca98a0a53ed92889a61e3c5618cdaece019216f3fdaa1baff8951280\"}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Initial financial transaction settled successfully\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Duplicate replay packet dispatched within 150ms window\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Backend correctly dropped and rejected replay attempt with HTTP 409 Conflict\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:35.881Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b909e28f501beb796bc-cc2dfb435b878fcd587c",
+              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+              "line": 88,
+              "column": 3
+            },
+            {
+              "title": "Negative Security Matrix: Tampered Payloads, Corrupted MAC, and Stale Timestamps",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Validating negative cryptographic mutation attack vectors \n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Backend rejected tampered payload body with HTTP 401 Unauthorized\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Backend rejected tampered timestamp with HTTP 401 Unauthorized\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Backend rejected corrupted MAC string with HTTP 401 Unauthorized\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Backend rejected stale timestamp with HTTP 422 Unprocessable Entity\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:35.890Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b909e28f501beb796bc-796f3a34c34d7eca86df",
+              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+              "line": 133,
+              "column": 3
+            },
+            {
+              "title": "Vulnerability Alert Layer: Framework Throws High-Risk Data-Mutation Alert on Unprotected Endpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST_START] Testing Vulnerability Detection Engine against simulated unprotected replay endpoint \n"
+                        },
+                        {
+                          "text": "[VULNERABLE_TEST_EXECUTED] Targeted vulnerable route to test security assertion handler {\"initialStatus\":200,\"replayStatus\":200}\n"
+                        },
+                        {
+                          "text": "[ASSERTION:PASS] Framework successfully trapped and alerted on high-risk replay vulnerability\n"
+                        },
+                        {
+                          "text": "[Test Teardown] Q2 Server stopped.\n"
+                        }
+                      ],
+                      "stderr": [
+                        {
+                          "text": "\n🚨 [HIGH_RISK_SECURITY_ALERT] HIGH-RISK DATA-MUTATION VULNERABILITY DETECTED: Server permitted duplicate transaction replay!\n"
+                        },
+                        {
+                          "text": "Details: {\n  \"transactionId\": \"txn_a59eae466f8504350b065fb6\",\n  \"replayedMac\": \"9677fad04cc7a2c2f7967509dcb976a08163357e3f99fa666539a9150968a59712400a0babb15e5e5ec195e071360052bf3b92005f9185fcb7c0dbc094794c17\",\n  \"duplicateResponseStatus\": 200,\n  \"duplicateResponseBody\": {\n    \"status\": \"SETTLED\",\n    \"transactionId\": \"txn_a59eae466f8504350b065fb6\",\n    \"settledAt\": 1789316855901,\n    \"proofOfWorkMac\": \"9677fad04cc7a2c2f7967509dcb976a08163357e3f99fa666539a9150968a59712400a0babb15e5e5ec195e071360052bf3b92005f9185fcb7c0dbc094794c17\"\n  }\n}\n\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2026-09-13T16:27:35.898Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b909e28f501beb796bc-ef4fc7d386fcbffb960e",
+              "file": "q2-crypto-replay/tests/crypto-replay.spec.js",
+              "line": 200,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "q3-shadow-dom/tests/shadow-dom.spec.js",
       "file": "q3-shadow-dom/tests/shadow-dom.spec.js",
       "column": 0,
@@ -94,7 +587,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 214,
+                      "duration": 216,
                       "errors": [],
                       "stdout": [
                         {
@@ -104,7 +597,7 @@
                           "text": "[TEST_START] Testing open shadow root piercing without static IDs, classes, or text matching \n"
                         },
                         {
-                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_hhtie\"}\n"
+                          "text": "[OBFUSCATED_CLASS_VERIFIED] Detected regenerating dynamic class string on shadow host {\"dynamicClass\":\"obfuscated_v4_sfi25\"}\n"
                         },
                         {
                           "text": "[ASSERTION:PASS] Verified custom element uses dynamic regenerating class strings\n"
@@ -118,7 +611,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T16:21:59.300Z",
+                      "startTime": "2026-09-13T16:27:35.917Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -158,7 +651,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 86,
+                      "duration": 92,
                       "errors": [],
                       "stdout": [
                         {
@@ -173,7 +666,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T16:21:59.590Z",
+                      "startTime": "2026-09-13T16:27:36.140Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -213,7 +706,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 194,
+                      "duration": 201,
                       "errors": [],
                       "stdout": [
                         {
@@ -234,7 +727,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-13T16:21:59.680Z",
+                      "startTime": "2026-09-13T16:27:36.235Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -265,9 +758,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-13T16:21:58.995Z",
-    "duration": 903.7289999999999,
-    "expected": 3,
+    "startTime": "2026-09-13T16:27:23.563Z",
+    "duration": 12911.601,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

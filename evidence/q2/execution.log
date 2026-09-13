@@ -1,8 +1,8 @@
-[2026-09-13T16:20:07.324Z] [TEST_START              ] Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification {}
-[2026-09-13T16:20:07.342Z] [TRANSACTION_CREATED     ] Received transaction wrapper from server {"status":201,"headerTxnId":"txn_733ffdd8a8bfbff0151eb5d0","headerChallenge":"ch_20dcc153f1328911e0b2543e43685036"}
-[2026-09-13T16:20:07.349Z] [PUT_DISPATCHED          ] Dispatched signed PUT update request {"status":200,"elapsedMs":4.140832999999986,"sentMac":"b5d83ebdf453a9dbf9eb798616f234cf742ef8f78725013a1118f256c8231794f9404753cbacdbd006f5a7f30a6d197bc94fcc6bcd930b8bcf1426e53550cf51"}
-[2026-09-13T16:20:07.354Z] [TEST_START              ] Executing immediate Replay Attack within <150ms of PUT completion {}
-[2026-09-13T16:20:07.357Z] [REPLAY_ATTACK_EXECUTED  ] Dispatched initial request followed by immediate duplicate payload {"initialStatus":200,"replayStatus":409,"burstDeltaMs":0.8423329999999964,"completedWithin150Ms":true,"replayedSignature":"e83c60f76bbe2987ff1d3ad045959a06138f6f735530b66d07ee87eea15a8cf6260664cd1e21d5c1c727fb634c05b3bec9e665a6767ceebbe2c0affdae97ba4e"}
-[2026-09-13T16:20:07.361Z] [TEST_START              ] Validating negative cryptographic mutation attack vectors {}
-[2026-09-13T16:20:07.372Z] [TEST_START              ] Testing Vulnerability Detection Engine against simulated unprotected replay endpoint {}
-[2026-09-13T16:20:07.374Z] [VULNERABLE_TEST_EXECUTED] Targeted vulnerable route to test security assertion handler {"initialStatus":200,"replayStatus":200}
+[2026-09-13T16:27:35.855Z] [TEST_START              ] Initiating Dynamic Sequence Chaining (POST -> PUT) with HMAC-SHA512 verification {}
+[2026-09-13T16:27:35.873Z] [TRANSACTION_CREATED     ] Received transaction wrapper from server {"status":201,"headerTxnId":"txn_e5909cc90b2f8721cbc64fd4","headerChallenge":"ch_e270766687a41e9e524a6daab5b88bbb"}
+[2026-09-13T16:27:35.878Z] [PUT_DISPATCHED          ] Dispatched signed PUT update request {"status":200,"elapsedMs":3.9272909999999683,"sentMac":"05291c68aa0e5629c9dd2550073cd97f5bcc8a9824f2728bd97070d6f0d391d3b8df320ad705ee9d99ff36a7d5fe4896119e5c17b31372a19b96d99c565431af"}
+[2026-09-13T16:27:35.883Z] [TEST_START              ] Executing immediate Replay Attack within <150ms of PUT completion {}
+[2026-09-13T16:27:35.887Z] [REPLAY_ATTACK_EXECUTED  ] Dispatched initial request followed by immediate duplicate payload {"initialStatus":200,"replayStatus":409,"burstDeltaMs":0.9121670000004087,"completedWithin150Ms":true,"replayedSignature":"e0a2efe403c2c4a4056debd6f8774ceea9b051d8dc7b6e6de64711d72c25caf5b85dc529ca98a0a53ed92889a61e3c5618cdaece019216f3fdaa1baff8951280"}
+[2026-09-13T16:27:35.892Z] [TEST_START              ] Validating negative cryptographic mutation attack vectors {}
+[2026-09-13T16:27:35.900Z] [TEST_START              ] Testing Vulnerability Detection Engine against simulated unprotected replay endpoint {}
+[2026-09-13T16:27:35.902Z] [VULNERABLE_TEST_EXECUTED] Targeted vulnerable route to test security assertion handler {"initialStatus":200,"replayStatus":200}
